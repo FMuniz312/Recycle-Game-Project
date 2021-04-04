@@ -18,6 +18,7 @@ public class MouseController : MonoBehaviour
                 {
                     if(info.collider.CompareTag("trash"))trashTransform = info.transform;
                     isHoldingTrash = true;
+                    SoundSystem.instance.PlaySound(SoundSystem.Sound.GarbageCollect);
                 }
             }
         }
@@ -25,6 +26,7 @@ public class MouseController : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0))
             {
+                trashTransform.GetComponent<TrashBehaviour>().CheckGarbageCan();
                 trashTransform = null;
                 isHoldingTrash = false;
             }
