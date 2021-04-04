@@ -20,18 +20,14 @@ namespace MunizCodeKit.Systems
 
         public enum Sound
         {
-            ConfirmationSound,
-            DeclineSound,
-            MenuClick1,
-            MenuClick2,
-            MenuClick3,
-            PlayerDash,
-            PlayerHurt,
-            ProjectileExplode,
-            PlayerAttack,
-
-
-
+            EarthHealthCritical,
+            GarbageCanCorrect,
+            GarbageCanIncorrect,
+            GarbageCollect,
+            GarbageSpawn,
+            RoundLose,
+            RoundWin,
+            Music
         }
 
         public void PlaySound(Sound soundType)
