@@ -113,4 +113,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: 0
+  minDistanceFromSpawn: 2
   goBackTime: 5

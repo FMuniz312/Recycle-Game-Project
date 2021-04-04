@@ -14,24 +14,27 @@ public class MouseController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit2D info = MouseHelper.MouseRayCast();
-                if (info)
+                if (info && info.collider.CompareTag("trash"))
                 {
-                    if(info.collider.CompareTag("trash"))trashTransform = info.transform;
+                      trashTransform = info.transform;
                     isHoldingTrash = true;
-                    SoundSystem.instance.PlaySound(SoundSystem.Sound.GarbageCollect);
+                     SoundSystem.instance.PlaySound(SoundSystem.Sound.GarbageCollect);
                 }
             }
         }
         else
         {
-            if (Input.GetMouseButtonUp(0))
+            if (trashTransform)
             {
-                trashTransform.GetComponent<TrashBehaviour>().CheckGarbageCan();
-                trashTransform = null;
-                isHoldingTrash = false;
+                if (Input.GetMouseButtonUp(0))
+                {
+                    trashTransform.GetComponent<TrashBehaviour>().CheckGarbageCan();
+                     trashTransform = null;
+                    isHoldingTrash = false;
+                }
+                if (isHoldingTrash) trashTransform.position = MouseHelper.MouseWorldPos();
             }
-                if(isHoldingTrash)trashTransform.position = MouseHelper.MouseWorldPos();
         }
-        
+
     }
 }
