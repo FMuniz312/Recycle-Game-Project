@@ -54,7 +54,7 @@ namespace MunizCodeKit.Systems
 
         public static RaycastHit2D MouseRayCast()
         {
-            return Physics2D.Raycast(MouseWorldPos(), Vector2.zero);
+            return Physics2D.Raycast(MouseWorldPos(), Vector2.zero,Mathf.Infinity);
             
         }
     }
