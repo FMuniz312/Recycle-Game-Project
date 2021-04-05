@@ -9,7 +9,11 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            PrefabFactory.instance.CreateItem(PrefabFactory.FactoryProduct.randomTrash);
+            PlanetBehaviour.instance.GetHealthSystem().AddPoints(10);
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            PlanetBehaviour.instance.GetHealthSystem().RemovePoints(10);
         }
     }
 }

@@ -6,9 +6,9 @@ using MunizCodeKit.Systems;
 public class TrashBehaviour : MonoBehaviour
 {
     public TrashType trashType;
-    public float minDistanceFromSpawn;
+    [SerializeField] float minDistanceFromSpawn;
+    [SerializeField] float goBackTime;
     Vector3 spawnPos;
-    public float goBackTime;
     private void Awake()
     {
         trashType = (TrashType)Random.Range(0, 4);
@@ -16,8 +16,8 @@ public class TrashBehaviour : MonoBehaviour
     private void Start()
     {
         spawnPos = transform.position;
+        FollowPlanetsRotation(true);
     }
-
     //Checks if the trash type is the same as the garbage can type
     public void CheckGarbageCan()
     {
@@ -31,14 +31,14 @@ public class TrashBehaviour : MonoBehaviour
             if (trashType == info.collider.GetComponent<GarbageCanBehaviour>().garbageCanType)
             {//the type of the trash is the sameone as the garbage can.
                 SoundSystem.instance.PlaySound(SoundSystem.Sound.GarbageCanCorrect);
-                PlanetBehaviour.TrashInCorrectCan();
+                PlanetBehaviour.instance.TrashInCorrectCan();
                 Destroy(gameObject);
             }
             else
             {
                 //the type of the trash is different from the garbage can
-                PlanetBehaviour.TrashNotInCorrectCan();
-                GoBackToPlanet(() => gameObject.GetComponent<Collider2D>().enabled = true);
+                PlanetBehaviour.instance.TrashNotInCorrectCan();
+                GoBackToPlanet();
                 SoundSystem.instance.PlaySound(SoundSystem.Sound.GarbageCanIncorrect);
             }
             return;
@@ -56,15 +56,27 @@ public class TrashBehaviour : MonoBehaviour
         //otherwise, the same penalty for "wrong garbage can" is applied
         else
         {
-            GoBackToPlanet(() => gameObject.GetComponent<Collider2D>().enabled = true);
+            GoBackToPlanet();
         }
     }
 
-    void GoBackToPlanet(TweenCallback onArrived)
+    void GoBackToPlanet()
     {
+        TweenCallback onArrived = () =>
+        gameObject.GetComponent<Collider2D>().enabled = true;
+        FollowPlanetsRotation(true);
+
         transform.DOMove(spawnPos, goBackTime).OnComplete(onArrived);
     }
 
+    void FollowPlanetsRotation(bool value)
+    {
+        if (value) transform.SetParent(PlanetBehaviour.instance.transform);
+        else
+        {
+            transform.SetParent(null);
+        }
+    }
 }
 public enum TrashType
 {

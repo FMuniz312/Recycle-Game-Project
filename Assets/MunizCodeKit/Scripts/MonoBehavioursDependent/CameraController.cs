@@ -1,14 +1,4 @@
-﻿/* 
-    ------------------- Code Monkey -------------------
-    
-    Thank you for downloading the Code Monkey Utilities
-    I hope you find them useful in your projects
-    If you have any questions use the contact form
-    Cheers!
-
-               unitycodemonkey.com
-    --------------------------------------------------
- */
+﻿ 
 
 //THIS IS A CODEMONKEY CAMERA SYSTEM WITH SOME CHANGES MADE BY MUNIZ USING DOTWEEN//
 
@@ -18,8 +8,6 @@ using UnityEngine;
 using DG.Tweening;
 namespace MunizCodeKit.MonoBehaviours
 {
-
-
     /*
      * Script to handle Camera Movement and Zoom
      * Place on Camera GameObject

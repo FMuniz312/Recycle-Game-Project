@@ -107,7 +107,7 @@ namespace MunizCodeKit.Systems
         /// of points is greater or equal to MaxPoints, then it triggers OnPointsIncreased, OnPointsChanged and OnPointsMax events.
         ///</remarks>
         /// <param name="value">value to be summed to this PointSystem's Current Points.</param>
-        public void AddValue(int value)
+        public void AddPoints(int value)
         {
             if (value > 0)
             {
