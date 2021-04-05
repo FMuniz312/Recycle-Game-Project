@@ -12,6 +12,16 @@ public class TrashBehaviour : MonoBehaviour
     private void Awake()
     {
         trashType = (TrashType)Random.Range(0, 4);
+
+        //DEBUG
+        switch (trashType)
+        {
+            case TrashType.Glass:GetComponent<SpriteRenderer>().color = Color.green;break;
+            case TrashType.Plastic: GetComponent<SpriteRenderer>().color = Color.red; break;
+            case TrashType.Paper: GetComponent<SpriteRenderer>().color = Color.blue; break;
+            case TrashType.Metal: GetComponent<SpriteRenderer>().color = Color.yellow; break;
+        }
+        //
     }
     private void Start()
     {

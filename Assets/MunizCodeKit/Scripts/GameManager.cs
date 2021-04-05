@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             PlanetBehaviour.instance.GetHealthSystem().AddPoints(10);
+            MunizCodeKit.Systems.TextPopUp.CreateTextPopUp("Ouvir dizer que você pode me ajudar! Rápido! Me ajuda a tirar esses lixos", Vector3.zero);
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
