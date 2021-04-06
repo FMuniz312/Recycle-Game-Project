@@ -28,7 +28,7 @@ public class MouseController : MonoBehaviour
             {
                 if (Input.GetMouseButtonUp(0))
                 {
-                    trashTransform.GetComponent<TrashBehaviour>().CheckGarbageCan();
+                  //  trashTransform.GetComponent<TrashBehaviour>().CheckGarbageCan();
                     trashTransform = null;
                     isHoldingTrash = false;
                 }
