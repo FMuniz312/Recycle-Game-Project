@@ -50,7 +50,7 @@ public class TrashBehaviour : MonoBehaviour
         gameObject.GetComponent<Collider2D>().enabled = false;
 
 
-        if (trashType == garbageCanBehaviour.garbageCanType)
+        if (trashType == garbageCanBehaviour.sodGarbageCan.garbageCanType)
         {//the type of the trash is the sameone as the garbage can.
             SoundSystem.instance.PlaySound(SoundSystem.Sound.GarbageCanCorrect);
             PlanetBehaviour.instance.TrashInCorrectCan();

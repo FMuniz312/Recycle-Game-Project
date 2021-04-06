@@ -10,15 +10,23 @@ namespace MunizCodeKit.Systems
         {
             get
             {
-                if (_i == null) _i = (Instantiate(Resources.Load("GameAssetsKeeper")) as GameObject).GetComponent<GameAssetsKeeper>();
+               
                 return _i;
-                        }
+            }
             set { }
         }
 
-
+        private void Awake()
+        {
+            if (_i == null) _i = this;
+        }
 
         public GameObject prefabTextPopUp;
+
+        public SODGarbageCan sodPlasticCan;
+        public SODGarbageCan sodPaperCan;
+        public SODGarbageCan sodMetalCan;
+        public SODGarbageCan sodGlassCan;
 
 
     }

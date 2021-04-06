@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabTextPopUp: {fileID: 4760286961630562475, guid: 954aa9addcd03034ea24aef112c722ed, type: 3}
+  sodPlasticCan: {fileID: 11400000, guid: a2a93a28dd2763d4daae8f703176e3a4, type: 2}
+  sodPaperCan: {fileID: 11400000, guid: 657a5d9241ac0c74ca38e41a51993fed, type: 2}
+  sodMetalCan: {fileID: 11400000, guid: a1f3eb510d1c2fe429ee204ce741e3c6, type: 2}
+  sodGlassCan: {fileID: 11400000, guid: 4eba92c90f4ddc14f99de8bcf85b9913, type: 2}
