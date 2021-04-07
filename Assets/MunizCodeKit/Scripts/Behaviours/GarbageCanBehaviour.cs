@@ -9,13 +9,13 @@ public class GarbageCanBehaviour : MonoBehaviour
     SpriteRenderer spriteRenderer;
     static List<SODGarbageCan> garbageCanTypeList;
 
-    [Header("Tween")]
-    [SerializeField] float shakeForceCorrect;
-    [SerializeField] float shakeTimerCorrect;
-    [SerializeField] float shakeForceWrong;
-    [SerializeField] float shakeTimerWrong;
 
-    Tween checkComplete;
+    float timer;
+    public bool hardMode { get; private set; }
+     
+
+    Tween checkCompleteCollectAnim;
+    Tween checkCompleteHardModeAnim;
 
     public static GarbageCanBehaviour instance;
     private void Awake()
@@ -27,12 +27,21 @@ public class GarbageCanBehaviour : MonoBehaviour
         }
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
+
     private void Start()
     {
-
         ChooseTypeRandomly();
+        timer = sodGarbageCan.timerMax;
+        ActivateHardMode();
     }
-
+    private void Update()
+    {
+        if (hardMode)
+        {
+            HardModeUpdate();
+        }
+    }
     public void ChooseTypeRandomly()
     {
         int randomNumber = Random.Range(0, garbageCanTypeList.Count);
@@ -45,7 +54,6 @@ public class GarbageCanBehaviour : MonoBehaviour
         }
 
     }
-
     void FillList()
     {
         garbageCanTypeList = new List<SODGarbageCan>{
@@ -55,17 +63,42 @@ public class GarbageCanBehaviour : MonoBehaviour
         GameAssetsKeeper.instance.sodPlasticCan
        };
     }
+    void HardModeUpdate()
+    {
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            timer += sodGarbageCan.timerMax;
+            HandleAnimation(ChooseTypeRandomly);
+        }
 
+    }
+    void HandleAnimation(TweenCallback action)
+    {
+        checkCompleteHardModeAnim?.Complete();
+        GetComponent<ParticleSystem>().Emit(50);
+        Vector3 defaultScale = transform.localScale;
+        checkCompleteHardModeAnim = transform.DOScale(Vector3.zero * .1f, sodGarbageCan.delay / 2).OnComplete(() =>
+           {
+               action();
+               transform.DOScale(defaultScale, sodGarbageCan.delay / 2);
+           });
+
+    }
+    public void ActivateHardMode()
+    {
+        hardMode = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("trash"))
         {
-            checkComplete?.Complete();
-            if (collision.gameObject.GetComponent<TrashBehaviour>().CheckGarbageCan(this)) checkComplete = transform.DOShakeRotation(shakeTimerCorrect, shakeForceCorrect);
+            checkCompleteCollectAnim?.Complete();
+            if (collision.gameObject.GetComponent<TrashBehaviour>().CheckGarbageCan(this)) checkCompleteCollectAnim = transform.DOShakeRotation(sodGarbageCan.shakeTimerCorrect, sodGarbageCan.shakeForceCorrect);
             else
             {
-                checkComplete = transform.DOShakePosition(shakeTimerWrong, shakeForceWrong);
+                checkCompleteCollectAnim = transform.DOShakePosition(sodGarbageCan.shakeTimerWrong, sodGarbageCan.shakeForceWrong);
             }
         }
     }

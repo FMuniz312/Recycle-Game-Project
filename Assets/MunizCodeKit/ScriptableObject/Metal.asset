@@ -14,3 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   garbageCanType: 2
   garbageCanSprite: {fileID: 21300000, guid: beeba3f021b07444ca16aa93002b5cb4, type: 3}
+  timerMax: 4
+  delay: 0.8
+  shakeForceCorrect: 6
+  shakeTimerCorrect: 3
+  shakeForceWrong: 1
+  shakeTimerWrong: 3

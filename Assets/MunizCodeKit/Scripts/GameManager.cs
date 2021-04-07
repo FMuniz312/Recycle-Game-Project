@@ -12,19 +12,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        DialogBoxController.instance.ShowDialogBox("Ouvir dizer que você pode me ajudar! Rápido! Me ajuda a tirar esses lixos", 3f);
-
+        DialogSystem.instance.StartDialog(DialogSystem.Dialog.firstLevel);
     }
     private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            PlanetBehaviour.instance.GetHealthSystem().AddPoints(10);
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            PlanetBehaviour.instance.GetHealthSystem().RemovePoints(10);
-        }
+    { 
     }
 
     public static void PauseGame(bool value)
