@@ -10,7 +10,7 @@ public class DialogBoxController : MonoBehaviour
     [SerializeField] GameObject panelGameObject;
     [SerializeField] Text dialogText;
     [SerializeField] Button closeDialogButton;
-
+    [SerializeField] Image dialogCharImage;
 
     [Header("Tween")]
     [SerializeField] float dialogBoxPunchForce;
@@ -30,31 +30,33 @@ public class DialogBoxController : MonoBehaviour
         HideDialogBox();
     }
 
-    public void ShowDialogBox(string text, float delay)
+    public void ShowDialogBox(string text, float delay, Sprite dialogcharsprite)
     {
+        checkPopUPComplete?.Complete();
+        checkTextComplete?.Complete();
         dialogText.text = "";
+        dialogCharImage.sprite = dialogcharsprite;
+
         GameManager.PauseGame(true);
         panelGameObject.SetActive(true);
-        checkPopUPComplete?.Complete();
         checkPopUPComplete = panelGameObject.GetComponent<RectTransform>().DOScale(1, dialogBoxPunchDuration).
             OnComplete(() =>
             {
-                checkTextComplete?.Complete();
                 checkTextComplete = dialogText.DOText(text, delay);
             });
 
     }
 
-    public void ShowDialogBox(string text, float delay, UnityEngine.Events.UnityAction afterButtonClicked)
+    public void ShowDialogBox(string text, float delay, Sprite dialogcharsprite, UnityEngine.Events.UnityAction afterButtonClicked)
     {
-        ShowDialogBox(text, delay);
+        ShowDialogBox(text, delay, dialogcharsprite);
         closeDialogButton.onClick.AddListener(afterButtonClicked);
 
     }
     public void HideDialogBox()
     {
         closeDialogButton.onClick.RemoveAllListeners();
-        GameManager.PauseGame(false);
+
         panelGameObject.GetComponent<RectTransform>().localScale = Vector3.zero * .02f;
         panelGameObject.SetActive(false);
     }

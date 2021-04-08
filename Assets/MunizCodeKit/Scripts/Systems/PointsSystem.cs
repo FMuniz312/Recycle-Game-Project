@@ -151,6 +151,41 @@ namespace MunizCodeKit.Systems
 
         }
         /// <summary>
+        /// Set the MaxPoints of the PointsSystem instance
+        /// </summary>
+        public void SetMaxPoints(int maxpoints)
+        {
+            if (maxpoints > 0)
+            {
+                maxPoints = maxpoints;
+            }
+            else
+            {
+                Debug.LogError("value can't be negative nor zero!");
+            }
+        }
+        /// <summary>
+        /// Set currentPoints in the PointsSystem instance
+        /// </summary>
+        public void SetCurrentPoints(int currentpoints)
+        {
+            if (currentpoints > 0 && currentpoints <= maxPoints)
+            {
+                OnPointsDataEventArgs EventArgsData = new OnPointsDataEventArgs { CurrentPointsEventArgs = currentPoints };
+                if (currentpoints == maxPoints) OnPointsMax?.Invoke(this, EventArgsData);
+                currentPoints = currentpoints;
+                OnPointsChanged?.Invoke(this, EventArgsData);
+
+
+
+            }
+            else
+            {
+                Debug.LogError("value can't be negative, zero nor greater then MaxPoints!");
+            }
+        }
+
+        /// <summary>
         /// Returns the current amout of points
         /// </summary>
         /// <returns>Current points of this instance</returns>

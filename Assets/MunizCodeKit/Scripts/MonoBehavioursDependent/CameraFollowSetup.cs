@@ -11,15 +11,15 @@ namespace MunizCodeKit.MonoBehaviours {
     public class CameraFollowSetup : MonoBehaviour {
 
         [SerializeField] private CameraController cameraFollow;
-        [SerializeField] private Transform followTransform;
+        [SerializeField] private Vector3 followPosition;
         [SerializeField] private float zoom;
 
         private void Start() {
-            if (followTransform == null) {
+            if (followPosition == null) {
                 Debug.Log("followTransform is null! Intended?");
                 cameraFollow.Setup(() => Vector3.zero, () => zoom);
             } else {
-                cameraFollow.Setup(() => followTransform.position, () => zoom);
+                cameraFollow.Setup(() => followPosition, () => zoom);
             }
         }
     }

@@ -8,6 +8,7 @@ public class PlanetBehaviour : MonoBehaviour, IAttackTarget
 {
     public static PlanetBehaviour instance;
     PointsSystem healthSystem;
+    public LevelSystem difficultyLevel { get; private set; }
     [SerializeField] int healthPerLoop;
     [SerializeField] float timerMax;
     float timer;
@@ -16,6 +17,10 @@ public class PlanetBehaviour : MonoBehaviour, IAttackTarget
         if (instance == null) instance = this;
         healthSystem = new PointsSystem(200, 170);
         timer = timerMax;
+        difficultyLevel = new LevelSystem(20, 3, 1);
+    }
+    private void Start()
+    {
     }
     private void Update()
     {

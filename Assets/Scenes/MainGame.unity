@@ -865,6 +865,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8abc60b577b2c324cbd622df13814fad, type: 3}
+--- !u!114 &642428157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3445775856058781947, guid: 4f2fbe41548620744bd33f9404985711, type: 3}
+  m_PrefabInstance: {fileID: 3618105804945668919}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &717816868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1202,7 +1213,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1438,7 +1449,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.45594516, g: 0.6680258, b: 0.8867924, a: 1}
+      maxColor: {r: 0.2653524, g: 0.5946002, b: 0.6320754, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -2081,7 +2092,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -2187,7 +2198,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -2198,22 +2209,31 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.7331563
+          value: 0.6109427
+          inSlope: -1.2187929
+          outSlope: -1.2187929
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
+          value: 0
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -6107,7 +6127,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6343,7 +6363,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.45594516, g: 0.6680258, b: 0.8867924, a: 1}
+      maxColor: {r: 0.2653524, g: 0.5946002, b: 0.6320754, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6986,7 +7006,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -7092,7 +7112,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -7103,22 +7123,31 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.7331563
+          value: 0.6109427
+          inSlope: -1.2187929
+          outSlope: -1.2187929
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
+          value: 0
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -11012,7 +11041,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11248,7 +11277,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.45594516, g: 0.6680258, b: 0.8867924, a: 1}
+      maxColor: {r: 0.2653524, g: 0.5946002, b: 0.6320754, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -11891,7 +11920,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -11997,7 +12026,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -12008,22 +12037,31 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.7331563
+          value: 0.6109427
+          inSlope: -1.2187929
+          outSlope: -1.2187929
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
+          value: 0
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -15854,6 +15892,7 @@ GameObject:
   - component: {fileID: 1816552518}
   - component: {fileID: 1816552517}
   - component: {fileID: 1816552519}
+  - component: {fileID: 1816552520}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -15961,8 +16000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraFollow: {fileID: 519420030}
-  followTransform: {fileID: 0}
-  zoom: 45
+  followPosition: {x: 245, y: 0, z: 0}
+  zoom: 90
 --- !u!114 &1816552519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15975,16 +16014,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f23dafe954771041842d359ee387448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: "Ei voc\xEA! Ouvi dizer que voc\xEA pode me ajudar, \xE9 verdade? Venha,
-    me ajuda a tirar esses lixos."
-  secondLevel: Tem algo vindo atrapalhar a gente! Fique atento
-  thirdLevel: Tem algo de errado com as latas de lixo... Cuidado!
-  good1: Obrigado pela ajuda!
-  good2: "Voc\xEA est\xE1 ajudando a recuperar esse planeta. Muito bem!"
-  good3: "Sem voc\xEA eu n\xE3o conseguiria. Obrigado!"
-  bad1: "Ei! Achei que voc\xEA estava me ajudando."
-  bad2: "Voc\xEA precisa reciclar da forma certa!"
-  bad3: "Poxa, voc\xEA tem que me ajudar mais r\xE1pido."
+  arrayDialogDataHolder:
+  - dialogEnum: 0
+    dialogText: "H\xE1 uma batalha ocorrendo h\xE1 anos dentro do Planeta Terra-Suja."
+    image: {fileID: 21300000, guid: beeba3f021b07444ca16aa93002b5cb4, type: 3}
+  - dialogEnum: 1
+    dialogText: "Seres desconhecidos jogam materiais n\xE3o degrad\xE1veis no solo
+      do planeta, deixando-o triste e machucado."
+    image: {fileID: 21300000, guid: b7d4812f6da6ba445aea430f87da5d67, type: 3}
+  - dialogEnum: 2
+    dialogText: "O planeta sempre est\xE1 se regenerando"
+    image: {fileID: 21300000, guid: 51f9b14659d023e45ae513deaa65eef8, type: 3}
+  - dialogEnum: 4
+    dialogText: "Ei, voc\xEA ai! \xC9, voc\xEA mesmo! "
+    image: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 5
+    dialogText: "R\xE1pido, me ajude. Colete esses lixos e coloque-os nas latas corretas. "
+    image: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 6
+    dialogText: Lembre-se, deve colocar-los nas latas corretas!
+    image: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 3
+    dialogText: "mas quando a quantidade de lixo \xE9 muito grande, o planeta n\xE3o
+      consegue se regenerar a tempo."
+    image: {fileID: 21300000, guid: 282030f43695187488eb3e1380d94a18, type: 3}
+--- !u!114 &1816552520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816552511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a1b7ce71ac07543914b6b9a843e47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2130182948
 GameObject:
   m_ObjectHideFlags: 0
@@ -16130,7 +16195,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16366,7 +16431,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.45594516, g: 0.6680258, b: 0.8867924, a: 1}
+      maxColor: {r: 0.2653524, g: 0.5946002, b: 0.6320754, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -17009,7 +17074,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -17173,7 +17238,7 @@ ParticleSystem:
       repeatInterval: 0.01
       probability: 1
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -17184,22 +17249,31 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.7331563
+          value: 0.6109427
+          inSlope: -1.2187929
+          outSlope: -1.2187929
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
+          value: 0
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -20955,6 +21029,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 323273214407003955, guid: 4f2fbe41548620744bd33f9404985711, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 323273214407003955, guid: 4f2fbe41548620744bd33f9404985711, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 323273214407003955, guid: 4f2fbe41548620744bd33f9404985711, type: 3}
+      propertyPath: m_FontData.m_AlignByGeometry
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1684143750367113508, guid: 4f2fbe41548620744bd33f9404985711, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -21039,6 +21125,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3287324384808556822, guid: 4f2fbe41548620744bd33f9404985711, type: 3}
+      propertyPath: dialogCharImage
+      value: 
+      objectReference: {fileID: 642428157}
+    - target: {fileID: 3445775856058781947, guid: 4f2fbe41548620744bd33f9404985711, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3445775856058781947, guid: 4f2fbe41548620744bd33f9404985711, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 840c137cb6984384c96103406d9d502a, type: 3}
     - target: {fileID: 8935767782432902858, guid: 4f2fbe41548620744bd33f9404985711, type: 3}
       propertyPath: m_Name
       value: DialogBox

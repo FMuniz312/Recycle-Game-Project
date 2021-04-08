@@ -39,8 +39,7 @@ public class GarbageCanBehaviour : MonoBehaviour
         startPos = transform.position;
         ChooseTypeRandomly();
         timer = sodGarbageCan.timerMax;
-        ActivateNewMode(2);
-        ActivateNewMode(3);
+         
     }
     private void Update()
     {
