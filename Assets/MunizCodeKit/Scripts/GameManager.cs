@@ -13,11 +13,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         isGameRunning = true;
-        DialogSystem.instance.StartDialog(DialogSystem.Dialog.firstLevel);
+        DialogSystem.instance.StartDialog(DialogSystem.Dialog.firstLevel, () => DialogSystem.instance.StartDialog(DialogSystem.Dialog.secondLevel));
     }
     private void Update()
     {
-     
+
     }
 
     public static void PauseGame(bool value)

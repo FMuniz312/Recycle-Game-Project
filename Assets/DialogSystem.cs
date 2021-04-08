@@ -43,6 +43,21 @@ public class DialogSystem : MonoBehaviour
 
     }
 
+    public void StartDialog(Dialog dialog, UnityEngine.Events.UnityAction afterButtonClicked)
+    {
+        if (dialogDictionary.Count <= 0) FillDictionary();
+        string dialogString;
+        if (dialogDictionary.TryGetValue(dialog, out dialogString))
+        {
+            DialogBoxController.instance.ShowDialogBox(dialogString, 3f, afterButtonClicked);
+        }
+        else
+        {
+            Debug.LogError("something went wrong when looking up the key in the dictionary");
+        }
+
+    }
+
     void FillDictionary()
     {
 

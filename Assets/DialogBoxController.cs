@@ -32,6 +32,7 @@ public class DialogBoxController : MonoBehaviour
 
     public void ShowDialogBox(string text, float delay)
     {
+        dialogText.text = "";
         GameManager.PauseGame(true);
         panelGameObject.SetActive(true);
         checkPopUPComplete?.Complete();
@@ -41,12 +42,19 @@ public class DialogBoxController : MonoBehaviour
                 checkTextComplete?.Complete();
                 checkTextComplete = dialogText.DOText(text, delay);
             });
-        
+
+    }
+
+    public void ShowDialogBox(string text, float delay, UnityEngine.Events.UnityAction afterButtonClicked)
+    {
+        ShowDialogBox(text, delay);
+        closeDialogButton.onClick.AddListener(afterButtonClicked);
+
     }
     public void HideDialogBox()
     {
+        closeDialogButton.onClick.RemoveAllListeners();
         GameManager.PauseGame(false);
-
         panelGameObject.GetComponent<RectTransform>().localScale = Vector3.zero * .02f;
         panelGameObject.SetActive(false);
     }
