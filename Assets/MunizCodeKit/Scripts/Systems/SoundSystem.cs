@@ -27,7 +27,10 @@ namespace MunizCodeKit.Systems
             GarbageSpawn,
             RoundLose,
             RoundWin,
-            Music
+            Music,
+            UIClick,
+            UIText,
+            GarbageThrow
         }
 
         public void PlaySound(Sound soundType)
@@ -37,9 +40,17 @@ namespace MunizCodeKit.Systems
             AudioClip audioClip = GetAudioClip(soundType);
             audioSource.volume *= volumeMultiplier;
             audioSource.PlayOneShot(audioClip);
-            Destroy(gameObject, audioClip.length);
+            Destroy(gameObject, audioClip.length + 0.5f);
 
             print("play: " + audioClip.name);
+
+            if (soundType == Sound.UIText)
+                textSoundSource = audioSource;
+        }
+        AudioSource textSoundSource;
+        public void StopTextSound()
+        {
+            textSoundSource.Stop();
         }
 
         public void ChangeVolumeMultiplier(float volume)

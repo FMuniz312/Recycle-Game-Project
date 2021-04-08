@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
+using MunizCodeKit.Systems;
 
 /*********************************************************************************************
  * Throw Input Handler
@@ -61,6 +62,7 @@ public class ThrowInputHandlerSAFEMODE : MonoBehaviour
             {
                 targetObject = hitInfo.transform.gameObject;
                 startPulling = true;
+                SoundSystem.instance.PlaySound(SoundSystem.Sound.GarbageCollect);
             }
         }
         //this boolean is to make sure the this function only cares about the "onButtonUnclicked" once the "onButtonClicked" is triggered
@@ -94,6 +96,8 @@ public class ThrowInputHandlerSAFEMODE : MonoBehaviour
 
                 DoAction(finalForce);
                 pulled = false;
+
+                SoundSystem.instance.PlaySound(SoundSystem.Sound.GarbageThrow);
             }
 
         }

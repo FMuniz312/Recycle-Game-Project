@@ -63,8 +63,14 @@ MonoBehaviour:
   - AudioClip: {fileID: 8300000, guid: b764e35fe3a109743aa20113644eedb9, type: 3}
     Sound: 5
     volume: 0.718
-  - AudioClip: {fileID: 8300000, guid: 3c56f193ea7c561408e1ec2f9c759be5, type: 3}
-    Sound: 6
+  - AudioClip: {fileID: 8300000, guid: 9f605fb622e3a114db555c5d839cfef0, type: 3}
+    Sound: 8
+    volume: 1
+  - AudioClip: {fileID: 8300000, guid: f22106ad2dfc50c44b765d2ad1a2357f, type: 3}
+    Sound: 9
+    volume: 0.261
+  - AudioClip: {fileID: 8300000, guid: ebeadac4e3eef9149a2e114a035f44f5, type: 3}
+    Sound: 10
     volume: 0.722
 --- !u!82 &941721382
 AudioSource:
@@ -77,7 +83,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7b83789e3858382438bd3dddef817b57, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

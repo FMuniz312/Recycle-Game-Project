@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using DG.Tweening;
+using MunizCodeKit.Systems;
 
 public class DialogBoxController : MonoBehaviour
 {
@@ -42,9 +43,15 @@ public class DialogBoxController : MonoBehaviour
         checkPopUPComplete = panelGameObject.GetComponent<RectTransform>().DOScale(1, dialogBoxPunchDuration).
             OnComplete(() =>
             {
-                checkTextComplete = dialogText.DOText(text, delay);
+                SoundSystem.instance.PlaySound(SoundSystem.Sound.UIText);
+                checkTextComplete = dialogText.DOText(text, delay).OnComplete(() =>
+                {
+                    SoundSystem.instance.StopTextSound();
+
+                });
             });
 
+        
     }
 
     public void ShowDialogBox(string text, float delay, Sprite dialogcharsprite, UnityEngine.Events.UnityAction afterButtonClicked)
@@ -55,6 +62,8 @@ public class DialogBoxController : MonoBehaviour
     }
     public void HideDialogBox()
     {
+        SoundSystem.instance.StopTextSound();
+        SoundSystem.instance.PlaySound(SoundSystem.Sound.UIClick);
         closeDialogButton.onClick.RemoveAllListeners();
 
         panelGameObject.GetComponent<RectTransform>().localScale = Vector3.zero * .02f;
