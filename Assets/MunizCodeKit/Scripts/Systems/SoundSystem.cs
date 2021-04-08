@@ -39,6 +39,7 @@ namespace MunizCodeKit.Systems
             audioSource.PlayOneShot(audioClip);
             Destroy(gameObject, audioClip.length);
 
+            print("play: " + audioClip.name);
         }
 
         public void ChangeVolumeMultiplier(float volume)
@@ -51,6 +52,7 @@ namespace MunizCodeKit.Systems
             {
                 if (ClipData.Sound == sound)
                 {
+                    ChangeVolumeMultiplier(ClipData.volume);
                     return ClipData.AudioClip;
                 }
             }
@@ -62,6 +64,8 @@ namespace MunizCodeKit.Systems
         {
             public AudioClip AudioClip;
             public Sound Sound;
+            [Range(0, 1)]
+            public float volume;
         }
 
         private void OnDestroy()
