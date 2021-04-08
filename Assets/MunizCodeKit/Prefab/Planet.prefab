@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbd69af00517b345939f064d9fa8841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthPerLoop: 10
+  timerMax: 1
 --- !u!114 &7553727523898519038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +112,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed2acc08fb070a44991f3ba09c87949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arraySpritesPlanet:
+  - {fileID: -5670219583755973928, guid: c237c297dd8e855418096e9c79085015, type: 3}
+  - {fileID: 4387805440755110692, guid: c237c297dd8e855418096e9c79085015, type: 3}
+  - {fileID: -928575157997398695, guid: c237c297dd8e855418096e9c79085015, type: 3}
+  - {fileID: -4580952413144428141, guid: c237c297dd8e855418096e9c79085015, type: 3}
+  - {fileID: -7855431166830747117, guid: c237c297dd8e855418096e9c79085015, type: 3}
+  - {fileID: -3313910301356985200, guid: c237c297dd8e855418096e9c79085015, type: 3}
+  - {fileID: -420348750127654217, guid: c237c297dd8e855418096e9c79085015, type: 3}
+  - {fileID: 12658450836325337, guid: c237c297dd8e855418096e9c79085015, type: 3}
+  - {fileID: -2198537582252325521, guid: c237c297dd8e855418096e9c79085015, type: 3}
+  - {fileID: -5390240080099215148, guid: c237c297dd8e855418096e9c79085015, type: 3}
+  - {fileID: -8201931626921703552, guid: c237c297dd8e855418096e9c79085015, type: 3}
   rotationSpeed: 12
   gradientHealth:
     serializedVersion: 2

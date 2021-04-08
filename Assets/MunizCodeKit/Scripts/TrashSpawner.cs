@@ -16,11 +16,14 @@ public class TrashSpawner : MonoBehaviour
 
     void Update()
     {
-        timer -= Time.deltaTime;
-        if(timer < 0)
-        {//time to spawn a trash
-            timer += spawnTimerMax;
-            SpawnTrash();
+        if (GameManager.isGameRunning)
+        {
+            timer -= Time.deltaTime;
+            if (timer < 0)
+            {//time to spawn a trash
+                timer += spawnTimerMax;
+                SpawnTrash();
+            }
         }
     }
     Vector3 GetRandomPos()
@@ -30,7 +33,7 @@ public class TrashSpawner : MonoBehaviour
 
     void SpawnTrash()
     {
-        MunizCodeKit.Factory.PrefabFactory.instance.CreateItem(MunizCodeKit.Factory.PrefabFactory.FactoryProduct.randomTrash,GetRandomPos());
+        MunizCodeKit.Factory.PrefabFactory.instance.CreateItem(MunizCodeKit.Factory.PrefabFactory.FactoryProduct.randomTrash, GetRandomPos());
     }
 
 

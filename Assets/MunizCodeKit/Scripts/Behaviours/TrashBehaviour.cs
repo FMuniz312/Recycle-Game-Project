@@ -8,7 +8,11 @@ public class TrashBehaviour : MonoBehaviour
     public TrashType trashType;
     [SerializeField] float minDistanceFromSpawn;
     [SerializeField] float goBackTime;
+    [SerializeField] float timerMax;
+    [SerializeField] int damagePerLoop;
+    float timer;
     Vector3 spawnPos;
+    PointsSystem planetHealthSystem;
     private void Awake()
     {
         trashType = (TrashType)Random.Range(0, 4);
@@ -30,9 +34,9 @@ public class TrashBehaviour : MonoBehaviour
         }
 
         GameManager.onGameEnded += GameManager_onGameEnded;
-     
+
     }
-     
+
 
     private void GameManager_onGameEnded(object sender, System.EventArgs e)
     {
@@ -43,6 +47,22 @@ public class TrashBehaviour : MonoBehaviour
     {
         spawnPos = transform.position;
         FollowPlanetsRotation(true);
+        planetHealthSystem = PlanetBehaviour.instance.GetHealthSystem();
+    }
+
+    private void Update()
+    {
+        if (GameManager.isGameRunning)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                timer += timerMax;
+                planetHealthSystem.RemovePoints(damagePerLoop);
+
+
+            }
+        }
     }
     //Checks if the trash type is the same as the garbage can type
     public bool CheckGarbageCan(GarbageCanBehaviour garbageCanBehaviour)

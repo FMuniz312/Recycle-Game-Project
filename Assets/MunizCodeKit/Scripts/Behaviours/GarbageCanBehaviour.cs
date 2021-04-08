@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using MunizCodeKit.Systems;
+using MunizCodeKit.MonoBehaviours;
 public class GarbageCanBehaviour : MonoBehaviour
 {
     public SODGarbageCan sodGarbageCan;
     SpriteRenderer spriteRenderer;
     static List<SODGarbageCan> garbageCanTypeList;
 
-
+    //ThirdMode
+    public bool thirdMode { get; private set; }
     float timer;
-    public bool hardMode { get; private set; }
-     
+    //**********************//
+    //Second Mode
+    public bool secondMode { get; private set; }
+    Vector3 startPos;
 
+    //**********************//
     Tween checkCompleteCollectAnim;
-    Tween checkCompleteHardModeAnim;
+    Tween checkCompleteThirdModeAnim;
 
     public static GarbageCanBehaviour instance;
     private void Awake()
@@ -31,15 +36,24 @@ public class GarbageCanBehaviour : MonoBehaviour
 
     private void Start()
     {
+        startPos = transform.position;
         ChooseTypeRandomly();
         timer = sodGarbageCan.timerMax;
-        ActivateHardMode();
+        ActivateNewMode(2);
+        ActivateNewMode(3);
     }
     private void Update()
     {
-        if (hardMode)
+        if (GameManager.isGameRunning)
         {
-            HardModeUpdate();
+            if (thirdMode)
+            {
+                ThirdModeUpdate();
+            }
+            if (secondMode)
+            {
+                SecondModeUpdate();
+            }
         }
     }
     public void ChooseTypeRandomly()
@@ -63,7 +77,7 @@ public class GarbageCanBehaviour : MonoBehaviour
         GameAssetsKeeper.instance.sodPlasticCan
        };
     }
-    void HardModeUpdate()
+    void ThirdModeUpdate()
     {
         timer -= Time.deltaTime;
         if (timer <= 0)
@@ -73,21 +87,36 @@ public class GarbageCanBehaviour : MonoBehaviour
         }
 
     }
+    void SecondModeUpdate()
+    {
+        sodGarbageCan.xPointOfstart += Time.deltaTime;
+
+        transform.position = new Vector3(Mathf.Cos(sodGarbageCan.xPointOfstart) * sodGarbageCan.radiusMultiplier, Mathf.Sin(sodGarbageCan.xPointOfstart) * sodGarbageCan.radiusMultiplier) + startPos;
+
+    }
     void HandleAnimation(TweenCallback action)
     {
-        checkCompleteHardModeAnim?.Complete();
+        checkCompleteThirdModeAnim?.Complete();
         GetComponent<ParticleSystem>().Emit(50);
         Vector3 defaultScale = transform.localScale;
-        checkCompleteHardModeAnim = transform.DOScale(Vector3.zero * .1f, sodGarbageCan.delay / 2).OnComplete(() =>
+        checkCompleteThirdModeAnim = transform.DOScale(Vector3.zero * .1f, sodGarbageCan.delay / 2).OnComplete(() =>
            {
                action();
                transform.DOScale(defaultScale, sodGarbageCan.delay / 2);
            });
 
     }
-    public void ActivateHardMode()
+    public void ActivateNewMode(int index)
     {
-        hardMode = true;
+        if (index == 2)
+        {
+            secondMode = true;
+            Camera.main.GetComponent<CameraController>().SetCameraZoom(Camera.main.orthographicSize + 10f);
+        }
+        else
+        {
+            thirdMode = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

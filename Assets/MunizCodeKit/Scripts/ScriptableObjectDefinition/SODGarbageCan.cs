@@ -7,11 +7,15 @@ public class SODGarbageCan : ScriptableObject
 {
     public TrashType garbageCanType;
     public Sprite garbageCanSprite;
-    
-    [Header("HardMode")]
+
+    [Header("SecondMode")]
     public float timerMax;
- 
-    [Header("HardMode Tween")]
+
+    [Header("ThirdMode")]
+    public float xPointOfstart;
+    public float radiusMultiplier;
+
+    [Header("ThirdMode Tween")]
     public float delay;
 
 

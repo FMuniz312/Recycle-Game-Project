@@ -32,6 +32,7 @@ public class DialogBoxController : MonoBehaviour
 
     public void ShowDialogBox(string text, float delay)
     {
+        GameManager.PauseGame(true);
         panelGameObject.SetActive(true);
         checkPopUPComplete?.Complete();
         checkPopUPComplete = panelGameObject.GetComponent<RectTransform>().DOScale(1, dialogBoxPunchDuration).
@@ -40,9 +41,12 @@ public class DialogBoxController : MonoBehaviour
                 checkTextComplete?.Complete();
                 checkTextComplete = dialogText.DOText(text, delay);
             });
+        
     }
     public void HideDialogBox()
     {
+        GameManager.PauseGame(false);
+
         panelGameObject.GetComponent<RectTransform>().localScale = Vector3.zero * .02f;
         panelGameObject.SetActive(false);
     }

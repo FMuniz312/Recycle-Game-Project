@@ -116,6 +116,8 @@ MonoBehaviour:
   trashType: 0
   minDistanceFromSpawn: 2
   goBackTime: 5
+  timerMax: 2
+  damagePerLoop: 2
 --- !u!50 &-1370371458526782303
 Rigidbody2D:
   serializedVersion: 4

@@ -5,6 +5,8 @@ using UnityEngine;
 public class DialogSystem : MonoBehaviour
 {
     Dictionary<Dialog, string> dialogDictionary = new Dictionary<Dialog, string>();
+    
+
     [Header("Main Dialog")]
     [SerializeField] string firstLevel;
     [SerializeField] string secondLevel;
@@ -25,12 +27,10 @@ public class DialogSystem : MonoBehaviour
         if (instance == null) instance = this;
     }
     #endregion
-    private void Start()
-    {
-        FillDictionary();
-    }
+    
     public void StartDialog(Dialog dialog)
     {
+        if (dialogDictionary.Count <= 0) FillDictionary();
         string dialogString;
         if (dialogDictionary.TryGetValue(dialog, out dialogString))
         {
@@ -45,7 +45,7 @@ public class DialogSystem : MonoBehaviour
 
     void FillDictionary()
     {
-       
+
         dialogDictionary.Add(Dialog.firstLevel, firstLevel);
         dialogDictionary.Add(Dialog.secondLevel, secondLevel);
         dialogDictionary.Add(Dialog.thirdLevel, thirdLevel);
