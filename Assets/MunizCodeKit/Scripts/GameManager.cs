@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MunizCodeKit.Factory;
 using MunizCodeKit.MonoBehaviours;
+using MunizCodeKit.Systems;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,12 +42,15 @@ public class GameManager : MonoBehaviour
         switch (e.CurrentPointsEventArgs)
         {
             case 2:
+                SoundSystem.instance.PlaySound(SoundSystem.Sound.RoundWin);
                 cutsceneHandler.PlayCutScene2();
                 ; break;
             case 3:
+                SoundSystem.instance.PlaySound(SoundSystem.Sound.RoundWin);
                 cutsceneHandler.PlayCutScene3();
                 ; break;
             case 4:
+                SoundSystem.instance.PlaySound(SoundSystem.Sound.RoundWin);
                 cutsceneHandler.PlayCutScene4();
                 ; break;
         }
@@ -54,6 +58,7 @@ public class GameManager : MonoBehaviour
 
     private void OnPlanetDied(object sender, MunizCodeKit.Systems.PointsSystem.OnPointsDataEventArgs e)
     {
+        SoundSystem.instance.PlaySound(SoundSystem.Sound.RoundLose);
         CleanGame();
         onGameEnded?.Invoke(this, EventArgs.Empty);
         cutsceneHandler.PlayCutSceneLose();
