@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     //GameManager Main
     public static event EventHandler onGameEnded;
+    public static event EventHandler cleanGame;
     public static bool isGameRunning { get; private set; }
     //
 
@@ -20,21 +21,43 @@ public class GameManager : MonoBehaviour
         cutsceneHandler.PlayCutScene1();
         PlanetBehaviour.instance.GetHealthSystem().OnPointsZero += OnPlanetDied;
         PlanetBehaviour.instance.difficultyLevel.levelPointsSystem.OnPointsChanged += LevelPointsSystem_OnPointsChanged;
+        PlanetBehaviour.instance.difficultyLevel.experiencePointsSystem.OnPointsMax += ExperiencePointsSystem_OnPointsMax;
+       
+     }
+
+    private void ExperiencePointsSystem_OnPointsMax(object sender, MunizCodeKit.Systems.PointsSystem.OnPointsDataEventArgs e)
+    {
+        if(PlanetBehaviour.instance.difficultyLevel.levelPointsSystem.GetPointsPercentage() == 1) // max level and max trash collected 
+        {//Win game
+            CleanGame();
+            cutsceneHandler.PlayCutSceneWin();
+
+        }
     }
 
     private void LevelPointsSystem_OnPointsChanged(object sender, MunizCodeKit.Systems.PointsSystem.OnPointsDataEventArgs e)
     {
+        CleanGame();
         switch (e.CurrentPointsEventArgs)
         {
-            case 2:; break; //activate garbage can second mode
-            case 3:; break; //activate garbage can third mode      
+            case 2:
+                cutsceneHandler.PlayCutScene2();
+                ; break;
+            case 3:
+                cutsceneHandler.PlayCutScene3();
+                ; break;
+            case 4:
+                cutsceneHandler.PlayCutScene4();
+                ; break;
         }
     }
 
     private void OnPlanetDied(object sender, MunizCodeKit.Systems.PointsSystem.OnPointsDataEventArgs e)
     {
+        CleanGame();
         onGameEnded?.Invoke(this, EventArgs.Empty);
-        PauseGame(true);
+        cutsceneHandler.PlayCutSceneLose();
+
     }
 
     private void Update()
@@ -45,6 +68,11 @@ public class GameManager : MonoBehaviour
     public static void PauseGame(bool value)
     {
         isGameRunning = !value;
+    }
+    public static void CleanGame()
+    {
+        cleanGame?.Invoke(null, EventArgs.Empty);
+        PauseGame(true);
     }
 
 

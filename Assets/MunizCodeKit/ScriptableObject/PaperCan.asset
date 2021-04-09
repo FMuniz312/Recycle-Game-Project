@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df9f741a012b8624b856e8ab1dd0d213, type: 3}
-  m_Name: Metal
+  m_Name: PaperCan
   m_EditorClassIdentifier: 
-  garbageCanType: 2
-  garbageCanSprite: {fileID: 21300000, guid: beeba3f021b07444ca16aa93002b5cb4, type: 3}
-  timerMax: 10
-  xPointOfstart: 611.85034
+  garbageCanType: 1
+  garbageCanSprite: {fileID: 21300000, guid: 282030f43695187488eb3e1380d94a18, type: 3}
+  timerMax: 5
+  xPointOfstart: 364.0648
   radiusMultiplier: 6
   delay: 0.8
   shakeForceCorrect: 6

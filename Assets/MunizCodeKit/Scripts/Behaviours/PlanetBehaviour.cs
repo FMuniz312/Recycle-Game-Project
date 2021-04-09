@@ -3,24 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using MunizCodeKit.Interface;
 using MunizCodeKit.Systems;
+using DG.Tweening;
 
 public class PlanetBehaviour : MonoBehaviour, IAttackTarget
 {
     public static PlanetBehaviour instance;
     PointsSystem healthSystem;
     public LevelSystem difficultyLevel { get; private set; }
-    [SerializeField] int healthPerLoop;
-    [SerializeField] float timerMax;
+
+    [Header("Balance")]
+    [SerializeField] int maxHealth;
+    [SerializeField] int startHealth;
+    [SerializeField] int amountOfTrashPerLevel;
+     [SerializeField] int healthPerLoop;
+    [SerializeField] float timerHealLoop;
+
     float timer;
     private void Awake()
     {
         if (instance == null) instance = this;
-        healthSystem = new PointsSystem(200, 170);
-        timer = timerMax;
-        difficultyLevel = new LevelSystem(20, 3, 1);
+        healthSystem = new PointsSystem(maxHealth, startHealth);
+        timer = timerHealLoop;
+        difficultyLevel = new LevelSystem(amountOfTrashPerLevel, 4, 1);
     }
     private void Start()
     {
+        
+
     }
     private void Update()
     {
@@ -29,7 +38,7 @@ public class PlanetBehaviour : MonoBehaviour, IAttackTarget
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                timer += timerMax;
+                timer += timerHealLoop;
                 healthSystem.AddPoints(healthPerLoop);
             }
         }

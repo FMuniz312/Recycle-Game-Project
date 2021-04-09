@@ -9,15 +9,15 @@ public class GarbageCanBehaviour : MonoBehaviour
     public SODGarbageCan sodGarbageCan;
     SpriteRenderer spriteRenderer;
     static List<SODGarbageCan> garbageCanTypeList;
+    //Second Mode
+    Vector3 startPos;
+    public bool secondMode { get; private set; }
 
+
+    //**********************//
     //ThirdMode
     public bool thirdMode { get; private set; }
     float timer;
-    //**********************//
-    //Second Mode
-    public bool secondMode { get; private set; }
-    Vector3 startPos;
-
     //**********************//
     Tween checkCompleteCollectAnim;
     Tween checkCompleteThirdModeAnim;
@@ -39,22 +39,33 @@ public class GarbageCanBehaviour : MonoBehaviour
         startPos = transform.position;
         ChooseTypeRandomly();
         timer = sodGarbageCan.timerMax;
-        ActivateNewMode(3);
+        PlanetBehaviour.instance.difficultyLevel.levelPointsSystem.OnPointsChanged += LevelPointsSystem_OnPointsChanged;
+
     }
     private void Update()
     {
         if (GameManager.isGameRunning)
         {
-            if (thirdMode)
-            {
-                ThirdModeUpdate();
-            }
             if (secondMode)
             {
                 SecondModeUpdate();
             }
+            if (thirdMode)
+            {
+                ThirdModeUpdate();
+            }
         }
     }
+    private void LevelPointsSystem_OnPointsChanged(object sender, MunizCodeKit.Systems.PointsSystem.OnPointsDataEventArgs e)
+    {
+        switch (e.CurrentPointsEventArgs)
+        {
+            case 2: ActivateNewMode(2); break; //activate garbage can second mode
+            case 3: ActivateNewMode(3); break; //activate garbage can third mode      
+            case 4: ActivateNewMode(4); break; //activate garbage can last mode      
+        }
+    }
+
     public void ChooseTypeRandomly()
     {
         int randomNumber = Random.Range(0, garbageCanTypeList.Count);
@@ -76,7 +87,7 @@ public class GarbageCanBehaviour : MonoBehaviour
         GameAssetsKeeper.instance.sodPlasticCan
        };
     }
-    void ThirdModeUpdate()
+    void SecondModeUpdate()
     {
         timer -= Time.deltaTime;
         if (timer <= 0)
@@ -86,7 +97,7 @@ public class GarbageCanBehaviour : MonoBehaviour
         }
 
     }
-    void SecondModeUpdate()
+    void ThirdModeUpdate()
     {
         sodGarbageCan.xPointOfstart += Time.deltaTime;
 
@@ -109,13 +120,24 @@ public class GarbageCanBehaviour : MonoBehaviour
     {
         if (index == 2)
         {
+            thirdMode = false;
             secondMode = true;
-            Camera.main.GetComponent<CameraController>().SetCameraZoom(Camera.main.orthographicSize + 10f);
+
+
+        }
+        else if (index == 3)
+        {
+            thirdMode = true;
+            secondMode = false;
+
         }
         else
         {
+
             thirdMode = true;
+            secondMode = true;
         }
+        transform.position = startPos;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -123,9 +145,13 @@ public class GarbageCanBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("trash"))
         {
             checkCompleteCollectAnim?.Complete();
-            if (collision.gameObject.GetComponent<TrashBehaviour>().CheckGarbageCan(this)) checkCompleteCollectAnim = transform.DOShakeRotation(sodGarbageCan.shakeTimerCorrect, sodGarbageCan.shakeForceCorrect);
+            if (collision.gameObject.GetComponent<TrashBehaviour>().CheckGarbageCan(this))
+            {//Correct Can
+                PlanetBehaviour.instance.difficultyLevel.AddExperience(1);
+                checkCompleteCollectAnim = transform.DOShakeRotation(sodGarbageCan.shakeTimerCorrect, sodGarbageCan.shakeForceCorrect);
+            }
             else
-            {
+            {//Incorrect Can
                 checkCompleteCollectAnim = transform.DOShakePosition(sodGarbageCan.shakeTimerWrong, sodGarbageCan.shakeForceWrong);
             }
         }

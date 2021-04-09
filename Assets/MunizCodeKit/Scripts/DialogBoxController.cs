@@ -54,10 +54,18 @@ public class DialogBoxController : MonoBehaviour
         
     }
 
-    public void ShowDialogBox(string text, float delay, Sprite dialogcharsprite, UnityEngine.Events.UnityAction afterButtonClicked)
+    public void ShowDialogBox(string text, float delay, Sprite dialogcharsprite, UnityEngine.Events.UnityAction afterbuttonclicked)
     {
         ShowDialogBox(text, delay, dialogcharsprite);
-        closeDialogButton.onClick.AddListener(afterButtonClicked);
+        closeDialogButton.onClick.AddListener(afterbuttonclicked);
+
+    }
+
+    public void ShowDialogBox(string text, float delay, Sprite dialogcharsprite, UnityEngine.Events.UnityAction afterbuttonclicked, string closebuttontext)
+    {
+        ShowDialogBox(text, delay, dialogcharsprite, afterbuttonclicked);
+        closeDialogButton.GetComponentInChildren<Text>().text = closebuttontext;
+         
 
     }
     public void HideDialogBox()

@@ -27,6 +27,10 @@ namespace MunizCodeKit.Systems
         public SODGarbageCan sodPaperCan;
         public SODGarbageCan sodMetalCan;
         public SODGarbageCan sodGlassCan;
+        public SODTrash sodGlassTrash;
+        public SODTrash sodMetalTrash;
+        public SODTrash sodPlasticTrash;
+        public SODTrash sodPaperTrash;
 
 
     }

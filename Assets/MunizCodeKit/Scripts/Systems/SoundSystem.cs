@@ -33,24 +33,30 @@ namespace MunizCodeKit.Systems
             GarbageThrow
         }
 
-        public void PlaySound(Sound soundType)
+        public void PlaySound(Sound soundType, bool loops = false)
         {
             GameObject gameObject = new GameObject("SoundEffect_", typeof(AudioSource));
             AudioSource audioSource = gameObject.GetComponent<AudioSource>();
             AudioClip audioClip = GetAudioClip(soundType);
             audioSource.volume *= volumeMultiplier;
             audioSource.PlayOneShot(audioClip);
-            Destroy(gameObject, audioClip.length + 0.5f);
-
+            if (loops)
+            {
+                audioSource.loop = true;
+            }
+            else
+            {
+                Destroy(gameObject, audioClip.length + 0.5f);
+            }
             print("play: " + audioClip.name);
 
-            if (soundType == Sound.UIText)
-                textSoundSource = audioSource;
+            if (soundType == Sound.UIText) textSoundSource = audioSource;
         }
+
         AudioSource textSoundSource;
         public void StopTextSound()
         {
-            textSoundSource.Stop();
+           if(textSoundSource) Destroy(textSoundSource.gameObject);
         }
 
         public void ChangeVolumeMultiplier(float volume)

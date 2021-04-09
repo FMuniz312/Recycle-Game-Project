@@ -98,8 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbd69af00517b345939f064d9fa8841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPerLoop: 10
-  timerMax: 1
+  maxHealth: 200
+  startHealth: 200
+  amountOfTrashPerLevel: 10
+  healthPerLoop: 20
+  timerHealLoop: 2
 --- !u!114 &7553727523898519038
 MonoBehaviour:
   m_ObjectHideFlags: 0

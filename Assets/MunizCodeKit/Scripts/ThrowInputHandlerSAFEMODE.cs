@@ -53,53 +53,63 @@ public class ThrowInputHandlerSAFEMODE : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0))
+        try
         {
-            mouseOnWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hitInfo = Physics2D.CircleCast(mouseOnWorldPosition, raycastRadius, Vector2.zero, 0, throwableMask);
-            if (hitInfo && hitInfo.transform.gameObject != null)
+            if (GameManager.isGameRunning)
             {
-                targetObject = hitInfo.transform.gameObject;
-                startPulling = true;
-                SoundSystem.instance.PlaySound(SoundSystem.Sound.GarbageCollect);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    mouseOnWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    RaycastHit2D hitInfo = Physics2D.CircleCast(mouseOnWorldPosition, raycastRadius, Vector2.zero, 0, throwableMask);
+                    if (hitInfo && hitInfo.transform.gameObject != null && hitInfo.transform.gameObject.GetComponent<TrashBehaviour>().canThrow == true)
+                    {
+                        targetObject = hitInfo.transform.gameObject;
+                        targetObject.GetComponent<TrashBehaviour>().canThrow = false;
+                        startPulling = true;
+                        SoundSystem.instance.PlaySound(SoundSystem.Sound.GarbageCollect);
+                    }
+                }
+                //this boolean is to make sure the this function only cares about the "onButtonUnclicked" once the "onButtonClicked" is triggered
+                if (startPulling)
+                {
+                    targetObject.transform.SetParent(null);
+                    mouseOnWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    mouseOnWorldPosition.z = 0;
+                    float distance = Vector2.Distance(mouseOnWorldPosition, targetObject.transform.position);
+                    if (distance > maxPullDistance) forcemultiplier = 1;
+                    else
+                    {
+                        forcemultiplier = distance / maxPullDistance;
+                    }
+                    float finalForce = forcemultiplier * maxPullForce;
+                    if (finalForce < minPullForce)
+                    {
+                        finalForce = minPullForce;
+                    }
+                    launchDirection = (targetObject.transform.position - mouseOnWorldPosition).normalized;
+                    //  Debug.DrawRay(targetObject.transform.position, launchDirection * finalForce);
+                    if (!pulled)
+                    {
+                        DirectionalArrowBehaviour.instance.ShowArrow(targetObject.transform.position);
+                        pulled = true;
+                    }
+                    //enter the if statement if the player let go of the left mouse button
+                    if (Input.GetMouseButtonUp(0))
+                    {
+                        startPulling = false;
+
+                        DoAction(finalForce);
+                        pulled = false;
+
+                        SoundSystem.instance.PlaySound(SoundSystem.Sound.GarbageThrow);
+                    }
+
+                }
             }
         }
-        //this boolean is to make sure the this function only cares about the "onButtonUnclicked" once the "onButtonClicked" is triggered
-        if (startPulling)
+        catch
         {
-            targetObject.transform.SetParent(null);
-            mouseOnWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mouseOnWorldPosition.z = 0;
-            float distance = Vector2.Distance(mouseOnWorldPosition, targetObject.transform.position);
-            if (distance > maxPullDistance) forcemultiplier = 1;
-            else
-            {
-                forcemultiplier = distance / maxPullDistance;
-            }
-            float finalForce = forcemultiplier * maxPullForce;
-            if (finalForce < minPullForce)
-            {
-                finalForce = minPullForce;
-            }
-            launchDirection = (targetObject.transform.position - mouseOnWorldPosition).normalized;
-            //  Debug.DrawRay(targetObject.transform.position, launchDirection * finalForce);
-            if (!pulled)
-            {
-                DirectionalArrowBehaviour.instance.ShowArrow(targetObject.transform.position);
-                pulled = true;
-            }
-            //enter the if statement if the player let go of the left mouse button
-            if (Input.GetMouseButtonUp(0))
-            {
-                startPulling = false;
-
-                DoAction(finalForce);
-                pulled = false;
-
-                SoundSystem.instance.PlaySound(SoundSystem.Sound.GarbageThrow);
-            }
-
+            Debug.Log("Transform destroyed");
         }
 
     }

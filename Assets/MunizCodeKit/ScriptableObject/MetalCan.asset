@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df9f741a012b8624b856e8ab1dd0d213, type: 3}
-  m_Name: Glass
+  m_Name: MetalCan
   m_EditorClassIdentifier: 
-  garbageCanType: 3
-  garbageCanSprite: {fileID: 21300000, guid: b7d4812f6da6ba445aea430f87da5d67, type: 3}
-  timerMax: 10
-  xPointOfstart: 4
-  radiusMultiplier: 8
+  garbageCanType: 2
+  garbageCanSprite: {fileID: 21300000, guid: beeba3f021b07444ca16aa93002b5cb4, type: 3}
+  timerMax: 5
+  xPointOfstart: 1066.3855
+  radiusMultiplier: 6
   delay: 0.8
   shakeForceCorrect: 6
   shakeTimerCorrect: 3

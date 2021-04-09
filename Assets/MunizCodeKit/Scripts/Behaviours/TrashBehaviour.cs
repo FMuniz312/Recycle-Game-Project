@@ -5,28 +5,26 @@ using DG.Tweening;
 using MunizCodeKit.Systems;
 public class TrashBehaviour : MonoBehaviour
 {
-    public TrashType trashType;
-    [SerializeField] float minDistanceFromSpawn;
-    [SerializeField] float goBackTime;
-    [SerializeField] float timerMax;
-    [SerializeField] int damagePerLoop;
+    [SerializeField] SODTrash sodTrash;
+    static List<SODTrash> trashTypeList;
+
+
+     
+
+    public bool canThrow;
     float timer;
     Vector3 spawnPos;
     PointsSystem planetHealthSystem;
+    TrashBehaviour instance;
     private void Awake()
     {
-        trashType = (TrashType)Random.Range(0, 4);
-
-        //DEBUG
-        switch (trashType)
+        if (instance == null)
         {
-            case TrashType.Glass: GetComponent<SpriteRenderer>().color = Color.green; break;
-            case TrashType.Plastic: GetComponent<SpriteRenderer>().color = Color.red; break;
-            case TrashType.Paper: GetComponent<SpriteRenderer>().color = Color.blue; break;
-            case TrashType.Metal: GetComponent<SpriteRenderer>().color = Color.yellow; break;
+            instance = this;
+            FillList();
         }
-        //
-
+         
+        
 
         if (GetComponent<Rigidbody2D>().constraints == RigidbodyConstraints2D.None)
         {
@@ -34,9 +32,16 @@ public class TrashBehaviour : MonoBehaviour
         }
 
         GameManager.onGameEnded += GameManager_onGameEnded;
+        GameManager.cleanGame += GameManager_cleanGame; 
 
     }
+   
 
+    private void GameManager_cleanGame(object sender, System.EventArgs e)
+    {
+        Destroy(this.gameObject);
+
+    }
 
     private void GameManager_onGameEnded(object sender, System.EventArgs e)
     {
@@ -45,9 +50,12 @@ public class TrashBehaviour : MonoBehaviour
 
     private void Start()
     {
+        canThrow = true;
         spawnPos = transform.position;
         FollowPlanetsRotation(true);
         planetHealthSystem = PlanetBehaviour.instance.GetHealthSystem();
+        ChooseTypeRandomly();
+         
     }
 
     private void Update()
@@ -57,8 +65,8 @@ public class TrashBehaviour : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                timer += timerMax;
-                planetHealthSystem.RemovePoints(damagePerLoop);
+                timer += sodTrash.timerMaxLoop;
+                planetHealthSystem.RemovePoints(sodTrash.damagePerLoop);
 
 
             }
@@ -70,7 +78,7 @@ public class TrashBehaviour : MonoBehaviour
         gameObject.GetComponent<Collider2D>().enabled = false;
 
 
-        if (trashType == garbageCanBehaviour.sodGarbageCan.garbageCanType)
+        if (sodTrash.trashType == garbageCanBehaviour.sodGarbageCan.garbageCanType)
         {//the type of the trash is the sameone as the garbage can.
             SoundSystem.instance.PlaySound(SoundSystem.Sound.GarbageCanCorrect);
             PlanetBehaviour.instance.TrashInCorrectCan();
@@ -98,8 +106,39 @@ public class TrashBehaviour : MonoBehaviour
             {
                 GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             }
+            canThrow = true;
         };
-        transform.DOMove(spawnPos, goBackTime).OnComplete(onArrived);
+        transform.DOMove(spawnPos, sodTrash.goBackTime).OnComplete(onArrived);
+    }
+
+    public void ChooseTypeRandomly()
+    {
+        int randomNumber = Random.Range(0, trashTypeList.Count);
+        sodTrash = trashTypeList[randomNumber];
+        GetComponent<SpriteRenderer>().sprite = trashTypeList[randomNumber].image;
+        trashTypeList.RemoveAt(randomNumber);
+        if (trashTypeList.Count <= 0)
+        {
+            FillList();
+        }
+
+    }
+    void FillList()
+    {
+        trashTypeList = new List<SODTrash>{
+        GameAssetsKeeper.instance.sodGlassTrash,
+        GameAssetsKeeper.instance.sodMetalTrash,
+        GameAssetsKeeper.instance.sodPaperTrash,
+        GameAssetsKeeper.instance.sodPlasticTrash
+       };
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("invisibleWall"))
+        {
+            GoBackToPlanet();
+        }
     }
 
     void FollowPlanetsRotation(bool value)
@@ -114,6 +153,8 @@ public class TrashBehaviour : MonoBehaviour
     private void OnDestroy()
     {
         GameManager.onGameEnded -= GameManager_onGameEnded;
+        GameManager.cleanGame -= GameManager_cleanGame;
+
     }
 }
 public enum TrashType

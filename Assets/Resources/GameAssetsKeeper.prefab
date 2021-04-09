@@ -48,3 +48,7 @@ MonoBehaviour:
   sodPaperCan: {fileID: 11400000, guid: 657a5d9241ac0c74ca38e41a51993fed, type: 2}
   sodMetalCan: {fileID: 11400000, guid: a1f3eb510d1c2fe429ee204ce741e3c6, type: 2}
   sodGlassCan: {fileID: 11400000, guid: 4eba92c90f4ddc14f99de8bcf85b9913, type: 2}
+  sodGlassTrash: {fileID: 11400000, guid: a06db49e96c527243b2331ce2ffce85a, type: 2}
+  sodMetalTrash: {fileID: 11400000, guid: 45bed9bc79c040e4fb5e507432f5bae8, type: 2}
+  sodPlasticTrash: {fileID: 11400000, guid: 80d9be09cfebc3c43af7a860cc155b15, type: 2}
+  sodPaperTrash: {fileID: 11400000, guid: 50c6227465ca0ac4499de0339cc9e85c, type: 2}

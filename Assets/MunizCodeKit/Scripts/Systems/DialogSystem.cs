@@ -33,11 +33,14 @@ public class DialogSystem : MonoBehaviour
 
     }
 
-    public void StartDialog(DialogEnum dialogenum, UnityEngine.Events.UnityAction afterButtonClicked)
+    public void StartDialog(DialogEnum dialogenum, UnityEngine.Events.UnityAction afterbuttonclicked)
     {
-        
-            DialogBoxController.instance.ShowDialogBox(GetDialogDataHolder(dialogenum).dialogText, TEXT_DELAY, GetDialogDataHolder(dialogenum).image, afterButtonClicked);
-         
+        DialogBoxController.instance.ShowDialogBox(GetDialogDataHolder(dialogenum).dialogText, TEXT_DELAY, GetDialogDataHolder(dialogenum).image, afterbuttonclicked);
+
+    }
+    public void StartDialog(DialogEnum dialogenum, UnityEngine.Events.UnityAction afterbuttonclicked, string closebuttontext)
+    {
+        DialogBoxController.instance.ShowDialogBox(GetDialogDataHolder(dialogenum).dialogText, TEXT_DELAY, GetDialogDataHolder(dialogenum).image, afterbuttonclicked, closebuttontext);
 
     }
 
@@ -45,7 +48,7 @@ public class DialogSystem : MonoBehaviour
     {
         return arrayDialogDataHolder.Where(p => p.dialogEnum == dialogenum).First();
     }
-     
+
 
     [System.Serializable]
     public class DialogDataHolder
@@ -63,5 +66,20 @@ public class DialogSystem : MonoBehaviour
         Planet1,
         Planet2,
         Planet3,
+        Planet4,
+        Planet5,
+        Planet6,
+        Planet7,
+        Planet8,
+        Enemy1,
+        Enemy2,
+        Enemy3,
+        Enemy4,
+        Enemy5,
+        WinGame1,
+        WinGame2,
+        LoseGame1,
+        LoseGame2
+
     }
 }

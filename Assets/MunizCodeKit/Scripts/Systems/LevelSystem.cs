@@ -31,6 +31,10 @@ namespace MunizCodeKit.Systems
         {
             if (value <= 0) return;
             int aux = value + experiencePointsSystem.currentPoints;
+            //DEBUG
+            Debug.Log("Lixos Coletados:" + experiencePointsSystem.currentPoints);
+            Debug.Log("Dificuldade atual:" + levelPointsSystem.currentPoints);
+            //
             if (aux < experiencePointsSystem.maxPoints)
             {
                 experiencePointsSystem.AddPoints(value);
@@ -44,6 +48,7 @@ namespace MunizCodeKit.Systems
             }
             experiencePointsSystem.ResetPoints();
             experiencePointsSystem.AddPoints(aux);
+           
         }
 
         public void AddLevel(int value)

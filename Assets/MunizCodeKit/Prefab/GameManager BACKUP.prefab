@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6619147782425249984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2130678973329848032}
+  - component: {fileID: 4871158251077064613}
+  - component: {fileID: 6926818586202219807}
+  - component: {fileID: 7752982358725674697}
+  - component: {fileID: 4141503349765589431}
+  - component: {fileID: 3814514989894003190}
+  - component: {fileID: 2746707103310755083}
+  - component: {fileID: 93533231883699580}
+  - component: {fileID: 4704403856904378925}
+  m_Layer: 0
+  m_Name: GameManager (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2130678973329848032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619147782425249984}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.6525643, y: -1.5129519, z: -0.8945803}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4871158251077064613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619147782425249984}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdaeb345365ff14e8f0ff74a76dbaf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6926818586202219807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619147782425249984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d91135042908e4d8eb4988b6cbdc52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productDatas:
+  - prefab: {fileID: 7366220275346407893, guid: 8c7765db668e9d142b5d73abeaa96d32, type: 3}
+    factoryProductType: 0
+--- !u!114 &7752982358725674697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619147782425249984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7174679d35120bd41984cee2f4040084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4141503349765589431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619147782425249984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2541add44ad7a00418c6d4008869bbc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTimerMax: 3
+  minX: -9
+  minY: 2
+--- !u!114 &3814514989894003190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619147782425249984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e947e7eb3216d40b72c592fa6847a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraFollow: {fileID: 0}
+  followPosition: {x: 245, y: 0, z: 0}
+  zoom: 90
+--- !u!114 &2746707103310755083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619147782425249984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28df691727c7c6a488933abd3ba9c1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPullDistance: 10
+  maxPullForce: 20
+  minPullForce: 15
+  raycastRadius: 1
+  throwableMask:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &93533231883699580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619147782425249984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f23dafe954771041842d359ee387448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrayDialogDataHolder:
+  - dialogEnum: 0
+    dialogText: "H\xE1 uma batalha ocorrendo h\xE1 anos dentro do Planeta Terra-Suja."
+    image: {fileID: 21300000, guid: beeba3f021b07444ca16aa93002b5cb4, type: 3}
+  - dialogEnum: 1
+    dialogText: "Seres desconhecidos jogam materiais n\xE3o degrad\xE1veis no solo
+      do planeta, deixando-o triste e machucado."
+    image: {fileID: 21300000, guid: b7d4812f6da6ba445aea430f87da5d67, type: 3}
+  - dialogEnum: 2
+    dialogText: "O planeta sempre est\xE1 se regenerando"
+    image: {fileID: 21300000, guid: 51f9b14659d023e45ae513deaa65eef8, type: 3}
+  - dialogEnum: 4
+    dialogText: "Ei, voc\xEA ai! \xC9, voc\xEA mesmo! "
+    image: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 5
+    dialogText: "R\xE1pido, me ajude. Colete esses lixos e coloque-os nas latas corretas. "
+    image: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 6
+    dialogText: Lembre-se, deve colocar-los nas latas corretas!
+    image: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 3
+    dialogText: "mas quando a quantidade de lixo \xE9 muito grande, o planeta n\xE3o
+      consegue se regenerar a tempo."
+    image: {fileID: 21300000, guid: 282030f43695187488eb3e1380d94a18, type: 3}
+  - dialogEnum: 12
+    dialogText: "Ah! Voc\xEA est\xE1 atrapalhando nosso avan\xE7o tecnol\xF3gico.
+      Pare com isso!"
+    image: {fileID: 0}
+  - dialogEnum: 7
+    dialogText: "Ei voc\xEA, enquanto eu tiver a sua ajuda, nunca perderemos."
+    image: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 13
+    dialogText: "Se voc\xEA n\xE3o quer sair por bem... vai sair por mal!"
+    image: {fileID: 0}
+  - dialogEnum: 8
+    dialogText: Cuidado, tem algo estranho acontecendo com seus coletores!
+    image: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 14
+    dialogText: "Parece que voc\xEA n\xE3o sabe quando para, n\xE3o \xE9?"
+    image: {fileID: 0}
+  - dialogEnum: 15
+    dialogText: "Se prepare, vamos fazer o poss\xEDvel para vencer!"
+    image: {fileID: 0}
+  - dialogEnum: 9
+    dialogText: "Sinto que eles est\xE3o preparando alguma dispositivo perigoso..."
+    image: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 10
+    dialogText: "Cuidado! Eles est\xE3o mirando nos seus coletores!"
+    image: {fileID: 21300000, guid: 840c137cb6984384c96103406d9d502a, type: 3}
+  - dialogEnum: 16
+    dialogText: "J\xC1 CHEGA! Usaremos todas nossas for\xE7as!"
+    image: {fileID: 0}
+  - dialogEnum: 11
+    dialogText: "N\xE3o desista ainda. Se vencermos agora, venceremos para sempre!"
+    image: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+--- !u!114 &4704403856904378925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619147782425249984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a1b7ce71ac07543914b6b9a843e47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -204,8 +204,8 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 55
     m_MaxSize: 75
-    m_Alignment: 1
-    m_AlignByGeometry: 0
+    m_Alignment: 4
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -228,7 +228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8469055861075329779
 RectTransform:
   m_ObjectHideFlags: 0
@@ -352,8 +352,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 840c137cb6984384c96103406d9d502a, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -440,7 +440,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ok!
+  m_Text: '>>>'
 --- !u!1 &8420478063659759189
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +578,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &7840170807927727907
 MonoBehaviour:
@@ -634,5 +634,6 @@ MonoBehaviour:
   panelGameObject: {fileID: 3148927526771528908}
   dialogText: {fileID: 323273214407003955}
   closeDialogButton: {fileID: 4633022631241038064}
+  dialogCharImage: {fileID: 3445775856058781947}
   dialogBoxPunchForce: 8
   dialogBoxPunchDuration: 0.8
