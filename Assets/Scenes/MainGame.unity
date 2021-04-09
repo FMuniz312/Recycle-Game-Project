@@ -20905,8 +20905,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxPullDistance: 5
-  maxPullForce: 30
-  minPullForce: 20
+  maxPullForce: 150
+  minPullForce: 150
   raycastRadius: 1
   throwableMask:
     serializedVersion: 2

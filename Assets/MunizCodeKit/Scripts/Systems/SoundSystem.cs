@@ -48,7 +48,7 @@ namespace MunizCodeKit.Systems
             {
                 Destroy(gameObject, audioClip.length + 0.5f);
             }
-            print("play: " + audioClip.name);
+
 
             if (soundType == Sound.UIText) textSoundSource = audioSource;
         }

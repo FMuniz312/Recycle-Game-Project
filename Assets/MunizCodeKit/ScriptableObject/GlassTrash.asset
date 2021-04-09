@@ -15,7 +15,7 @@ MonoBehaviour:
   trashType: 3
   image: {fileID: -8356014125111857993, guid: 4385cdf6ed8f1824b9faebec2f41c2d8, type: 3}
   minDistanceFromSpawn: 2
-  goBackTime: 5
+  goBackTime: 3
   timerMaxLoop: 1
   damagePerLoop: 2
   scaleUpDelay: 1.5
