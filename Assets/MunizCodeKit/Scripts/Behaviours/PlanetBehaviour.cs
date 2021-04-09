@@ -15,8 +15,8 @@ public class PlanetBehaviour : MonoBehaviour, IAttackTarget
     [SerializeField] int maxHealth;
     [SerializeField] int startHealth;
     [SerializeField] int amountOfTrashPerLevel;
-     [SerializeField] int healthPerLoop;
-    [SerializeField] float timerHealLoop;
+    [SerializeField] int healthPerLoop;
+   [SerializeField] float timerHealLoop;
 
     float timer;
     private void Awake()
@@ -33,7 +33,7 @@ public class PlanetBehaviour : MonoBehaviour, IAttackTarget
     }
     private void Update()
     {
-        if (GameManager.isGameRunning)
+       if (GameManager.isGameRunning)
         {
             timer -= Time.deltaTime;
             if (timer <= 0)
@@ -42,11 +42,11 @@ public class PlanetBehaviour : MonoBehaviour, IAttackTarget
                 healthSystem.AddPoints(healthPerLoop);
             }
         }
-
+       
     }
     public void TrashInCorrectCan()
     {
-        healthSystem.AddPoints(2);
+         
     }
     public void TrashNotInCorrectCan()
     {

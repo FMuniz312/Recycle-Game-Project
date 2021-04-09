@@ -101,8 +101,8 @@ MonoBehaviour:
   maxHealth: 200
   startHealth: 200
   amountOfTrashPerLevel: 10
-  healthPerLoop: 20
-  timerHealLoop: 2
+  healthPerLoop: 5
+  timerHealLoop: 6
 --- !u!114 &7553727523898519038
 MonoBehaviour:
   m_ObjectHideFlags: 0

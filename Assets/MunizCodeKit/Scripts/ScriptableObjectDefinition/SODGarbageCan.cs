@@ -7,7 +7,7 @@ public class SODGarbageCan : ScriptableObject
 {
     public TrashType garbageCanType;
     public Sprite garbageCanSprite;
-
+    public int healAmount;
     [Header("SecondMode")]
     public float timerMax;
 

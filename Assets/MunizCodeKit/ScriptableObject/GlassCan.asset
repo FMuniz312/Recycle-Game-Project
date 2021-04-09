@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   garbageCanType: 3
   garbageCanSprite: {fileID: 21300000, guid: b7d4812f6da6ba445aea430f87da5d67, type: 3}
+  healAmount: 4
   timerMax: 5
-  xPointOfstart: 461.88333
+  xPointOfstart: 648.58246
   radiusMultiplier: 4
   delay: 0.8
   shakeForceCorrect: 6

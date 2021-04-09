@@ -148,6 +148,7 @@ public class GarbageCanBehaviour : MonoBehaviour
             if (collision.gameObject.GetComponent<TrashBehaviour>().CheckGarbageCan(this))
             {//Correct Can
                 PlanetBehaviour.instance.difficultyLevel.AddExperience(1);
+                PlanetBehaviour.instance.GetHealthSystem().AddPoints(sodGarbageCan.healAmount);
                 checkCompleteCollectAnim = transform.DOShakeRotation(sodGarbageCan.shakeTimerCorrect, sodGarbageCan.shakeForceCorrect);
             }
             else

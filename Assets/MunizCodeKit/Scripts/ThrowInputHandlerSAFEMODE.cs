@@ -24,7 +24,9 @@ public class ThrowInputHandlerSAFEMODE : MonoBehaviour
     [SerializeField] float minPullForce;//Min force that the object can be thrown
     [SerializeField] float raycastRadius;//Raycast (circle) size. We use this raycast to locate the nearest NPC to throw
 
-
+    [Header("Tween")]
+    [SerializeField] float CameraShakeForce;
+    [SerializeField] float CameraShakeDuration;
 
     [Header("Raycast2D")]
     [SerializeField] LayerMask throwableMask; //Mask of the throwable object for the RayCast2D
@@ -126,7 +128,7 @@ public class ThrowInputHandlerSAFEMODE : MonoBehaviour
             targetObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         }
         throwObjectSystem.ThrowObject(targetObject, launchDirection, finalforce);
-
+        MunizCodeKit.MonoBehaviours.CameraController.ShakeCamera(CameraShakeForce,CameraShakeDuration);
 
 
 

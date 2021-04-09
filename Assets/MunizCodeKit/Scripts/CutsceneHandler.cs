@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using MunizCodeKit.MonoBehaviours;
 using DG.Tweening;
 
@@ -11,6 +12,9 @@ public class CutsceneHandler : MonoBehaviour
     [SerializeField] GameObject losePanel;
     [SerializeField] GameObject particleEffectBackGround;
     [SerializeField] GameObject healthBar;
+    [SerializeField] GameObject tutorialText;
+
+    Vector3 rectTutorialFinalPos;
 
     const float NEAR_ZOOM = 30f;
     const float NORMAL_ZOOM = 45f;
@@ -24,6 +28,11 @@ public class CutsceneHandler : MonoBehaviour
     //Cutscene 1 **************/
     public void PlayCutScene1()
     {
+        rectTutorialFinalPos = tutorialText.GetComponent<RectTransform>().anchoredPosition;
+
+        tutorialText.GetComponent<RectTransform>().anchoredPosition = new Vector3(0,270);
+        tutorialText.SetActive(true);
+
 
         DialogSystem.instance.StartDialog(DialogSystem.DialogEnum.Narrator1, () =>
          DialogSystem.instance.StartDialog(DialogSystem.DialogEnum.Narrator2, () =>
@@ -34,20 +43,28 @@ public class CutsceneHandler : MonoBehaviour
     }
     private void MoveCloserToPlanet()
     {
+        tutorialText.GetComponent<RectTransform>().DOAnchorPos(rectTutorialFinalPos, 1);
         cameraController.SetCameraFollowPosition(new Vector3(0, 0, -10));
         cameraController.SetCameraZoom(NORMAL_ZOOM);
         particleEffectBackGround.SetActive(true);
         healthBar.SetActive(true);
+
         StartCoroutine(WaitingForThePlanetToBeOnScreen(3));
     }
 
     IEnumerator WaitingForThePlanetToBeOnScreen(float secondstowait)
     {
+
         yield return new WaitForSeconds(secondstowait);
         DialogSystem.instance.StartDialog(DialogSystem.DialogEnum.Planet1, () =>
          DialogSystem.instance.StartDialog(DialogSystem.DialogEnum.Planet2, () =>
          DialogSystem.instance.StartDialog(DialogSystem.DialogEnum.Planet3, () =>
          GameManager.PauseGame(false))));
+        Color alpha = tutorialText.GetComponent<Text>().color;
+        alpha.a = 0;
+        tutorialText.GetComponent<Text>().DOColor(alpha, 1).OnComplete(() => tutorialText.SetActive(false));
+
+
 
     }
     /**************************/
@@ -74,7 +91,7 @@ public class CutsceneHandler : MonoBehaviour
     #region Cutscene3
     public void PlayCutScene3()
     {
-         
+
         cameraController.SetCameraFollowPosition(new Vector3(PlanetBehaviour.instance.gameObject.transform.position.x, PlanetBehaviour.instance.gameObject.transform.position.y, -10));
         cameraController.SetCameraZoom(NEAR_ZOOM);
         DialogSystem.instance.StartDialog(DialogSystem.DialogEnum.Enemy1, () =>
@@ -123,7 +140,7 @@ public class CutsceneHandler : MonoBehaviour
     {
         losePanel.SetActive(true);
 
-        cameraController.SetCameraFollowPosition(new Vector3(0,0,-10));
+        cameraController.SetCameraFollowPosition(new Vector3(0, 0, -10));
         cameraController.SetCameraZoom(FAR_ZOOM);
         DialogSystem.instance.StartDialog(DialogSystem.DialogEnum.LoseGame1, () =>
         DialogSystem.instance.StartDialog(DialogSystem.DialogEnum.LoseGame2, () => UnityEngine.SceneManagement.SceneManager.LoadScene(1), "Jogar de novo"));

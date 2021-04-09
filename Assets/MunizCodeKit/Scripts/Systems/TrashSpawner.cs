@@ -11,7 +11,7 @@ public class TrashSpawner : MonoBehaviour
 
     void Start()
     {
-        timer = spawnTimerMax;
+        timer = spawnTimerMax*.5f; // it was taking too long to start the game
     }
 
     void Update()
