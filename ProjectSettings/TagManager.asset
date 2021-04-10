@@ -4,10 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Earth
-  - trash
-  - garbageCan
   - invisibleWall
+  - garbageCan
+  - trash
   layers:
   - Default
   - TransparentFX
@@ -17,8 +16,8 @@ TagManager:
   - UI
   - 
   - 
-  - Trash
-  - Camera
+  - 
+  - 
   - 
   - 
   - 
@@ -42,8 +41,8 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 2161695489
+  - name: background
+    uniqueID: 44095827
     locked: 0
   - name: Default
     uniqueID: 0
