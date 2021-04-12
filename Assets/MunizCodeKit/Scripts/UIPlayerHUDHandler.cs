@@ -9,6 +9,14 @@ public class UIPlayerHUDHandler : MonoBehaviour
     [SerializeField] Image healthBar;
     [SerializeField] Gradient planetsHealthColor;
     [SerializeField] Text tutorialText;
+
+    //Quit game UI
+    [SerializeField] GameObject quitPanel;
+    [SerializeField] Text acceptText;
+    [SerializeField] Text cancelText;
+    [SerializeField] Text quitText;
+
+    //
     float lifeEnergyFillAmount;
 
     private void Start()
@@ -40,5 +48,38 @@ public class UIPlayerHUDHandler : MonoBehaviour
         DOTween.To(() => healthBar.fillAmount, (value) => healthBar.fillAmount = value, lifeEnergyFillAmount, .5f);
 
         healthBar.color = planetsHealthColor.Evaluate(percentage);
+    }
+
+    public void QuitGameRequest()
+    {
+
+        switch (LanguageSystem.gameLanguage)
+        {
+            default:
+                quitText.text = "Do you want to quit the game?";
+                acceptText.text = "Yes";
+                cancelText.text = "No"; break;
+            case Language.BrazilianPortuguese:
+                quitText.text = "Você quer sair do jogo?";
+                acceptText.text = "Sim";
+                cancelText.text = "Não"; break;
+
+        }
+
+
+        quitPanel.SetActive(true);
+
+        GameManager.PauseGame(true);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+
+    }
+    public void CloseQuitWindow()
+    {
+        quitPanel.SetActive(false);
+        GameManager.PauseGame(false);
     }
 }
