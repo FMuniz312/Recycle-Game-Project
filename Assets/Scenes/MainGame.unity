@@ -22062,8 +22062,8 @@ MonoBehaviour:
       Pare com isso!"
     englishText: Argh! You are interfering with our thechnology advancements! Stop
       that!
-    imagePTBR: {fileID: 21300000, guid: 51f9b14659d023e45ae513deaa65eef8, type: 3}
-    imageENG: {fileID: 21300000, guid: 645ed47006b5cc04094613ae84c0a460, type: 3}
+    imagePTBR: {fileID: 3196435758642754743, guid: 4385cdf6ed8f1824b9faebec2f41c2d8, type: 3}
+    imageENG: {fileID: 3196435758642754743, guid: 4385cdf6ed8f1824b9faebec2f41c2d8, type: 3}
   - dialogEnum: 7
     portugueseText: "Ei voc\xEA, enquanto eu tiver a sua ajuda, nunca perderemos."
     englishText: Hey! As long as I have your help, we'll never lose!
@@ -22073,8 +22073,8 @@ MonoBehaviour:
     portugueseText: "Se voc\xEA n\xE3o quer sair por bem... vai sair por mal! "
     englishText: If you don't want to go the easy way... you're going to go the hard
       way!
-    imagePTBR: {fileID: 21300000, guid: b7d4812f6da6ba445aea430f87da5d67, type: 3}
-    imageENG: {fileID: 21300000, guid: 8cd5ac36fe03dad468c62ab69ad2c46f, type: 3}
+    imagePTBR: {fileID: -8356014125111857993, guid: 4385cdf6ed8f1824b9faebec2f41c2d8, type: 3}
+    imageENG: {fileID: -8356014125111857993, guid: 4385cdf6ed8f1824b9faebec2f41c2d8, type: 3}
   - dialogEnum: 8
     portugueseText: Cuidado, tem algo estranho acontecendo com seus coletores!
     englishText: Look! There's something weird going on with the cans!
@@ -22083,13 +22083,13 @@ MonoBehaviour:
   - dialogEnum: 14
     portugueseText: "Parece que voc\xEA n\xE3o sabe quando parar, n\xE3o \xE9?"
     englishText: Looks like you don't know when to stop, right?
-    imagePTBR: {fileID: 21300000, guid: 51f9b14659d023e45ae513deaa65eef8, type: 3}
-    imageENG: {fileID: 21300000, guid: 645ed47006b5cc04094613ae84c0a460, type: 3}
+    imagePTBR: {fileID: 3196435758642754743, guid: 4385cdf6ed8f1824b9faebec2f41c2d8, type: 3}
+    imageENG: {fileID: 3196435758642754743, guid: 4385cdf6ed8f1824b9faebec2f41c2d8, type: 3}
   - dialogEnum: 15
     portugueseText: "Se prepare, vamos fazer o poss\xEDvel para vencer!"
     englishText: Get ready then. We're gonna do all we can to win!
-    imagePTBR: {fileID: 21300000, guid: 282030f43695187488eb3e1380d94a18, type: 3}
-    imageENG: {fileID: 21300000, guid: ca36c7afd2ef2264ebf855defbfc76e3, type: 3}
+    imagePTBR: {fileID: 1226546827161105575, guid: 4385cdf6ed8f1824b9faebec2f41c2d8, type: 3}
+    imageENG: {fileID: 1226546827161105575, guid: 4385cdf6ed8f1824b9faebec2f41c2d8, type: 3}
   - dialogEnum: 9
     portugueseText: "Sinto que eles est\xE3o preparando algum dispositivo perigoso..."
     englishText: I sense some dangerous device being armed...
@@ -22103,8 +22103,8 @@ MonoBehaviour:
   - dialogEnum: 16
     portugueseText: " J\xC1 CHEGA! Usaremos todas nossas for\xE7as!"
     englishText: 'THAT''S ENOUGH! We''ll use everything we have! '
-    imagePTBR: {fileID: 21300000, guid: beeba3f021b07444ca16aa93002b5cb4, type: 3}
-    imageENG: {fileID: 21300000, guid: b606fd3165f5cd94fb31b05762bad395, type: 3}
+    imagePTBR: {fileID: -5281611547235778657, guid: 4385cdf6ed8f1824b9faebec2f41c2d8, type: 3}
+    imageENG: {fileID: -5281611547235778657, guid: 4385cdf6ed8f1824b9faebec2f41c2d8, type: 3}
   - dialogEnum: 11
     portugueseText: "N\xE3o desista ainda. Se vencermos agora, venceremos para sempre!"
     englishText: Don't give up yet. If we win today, we'll win forever!
