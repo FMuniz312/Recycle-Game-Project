@@ -7,34 +7,37 @@ using UnityEngine.SceneManagement;
 public class MenuGameUI : MonoBehaviour
 {
     [SerializeField] Text playText;
+    [SerializeField] Text chooseLanguageText;
+    [SerializeField] Text GameTitle;
 
     private void Start()
     {
-        switch (LanguageSystem.gameLanguage)
-        {
-            default: playText.text = "Play"; break;
-            case Language.BrazilianPortuguese: playText.text = "Jogar"; break;
-
-        }
+        UpdateUILanguage();
     }
 
     public void ChooseGameBRPortugueseLanguage()
     {
         LanguageSystem.ChooseLanguage(Language.BrazilianPortuguese);
-        UpdateUI();
+        UpdateUILanguage();
     }
     public void ChooseGameEnglishLanguage()
     {
         LanguageSystem.ChooseLanguage(Language.English);
-        UpdateUI();
+        UpdateUILanguage();
     }
 
-    void UpdateUI()
+    void UpdateUILanguage()
     {
         switch (LanguageSystem.gameLanguage)
         {
-            default: playText.text = "Play"; break;
-            case Language.BrazilianPortuguese: playText.text = "Jogar"; break;
+            default:
+                playText.text = "Play";
+                chooseLanguageText.text = "Choose a language";
+                GameTitle.text = "Planet Dirty Earth"; break;
+            case Language.BrazilianPortuguese:
+                playText.text = "Jogar";
+                chooseLanguageText.text = "Escolha um idioma";
+                GameTitle.text = "Planeta Terra Suja"; break;
 
         }
     }
