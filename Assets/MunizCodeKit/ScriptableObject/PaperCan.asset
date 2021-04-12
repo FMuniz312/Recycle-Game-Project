@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PaperCan
   m_EditorClassIdentifier: 
   garbageCanType: 1
-  garbageCanSprite: {fileID: 21300000, guid: 282030f43695187488eb3e1380d94a18, type: 3}
+  garbageCanSpritePortuguese: {fileID: 21300000, guid: 282030f43695187488eb3e1380d94a18, type: 3}
+  garbageCanSpriteEnglish: {fileID: 21300000, guid: ca36c7afd2ef2264ebf855defbfc76e3, type: 3}
   healAmount: 7
   timerMax: 5
   xPointOfstart: 698.5491

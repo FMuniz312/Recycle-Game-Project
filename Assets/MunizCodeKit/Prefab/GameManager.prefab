@@ -1,0 +1,315 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5183451872302142332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5183451872302142210}
+  - component: {fileID: 5183451872302142211}
+  - component: {fileID: 5183451872302142209}
+  - component: {fileID: 5183451872302142208}
+  - component: {fileID: 5183451872302142215}
+  - component: {fileID: 5183451872302142213}
+  - component: {fileID: 5183451872302142214}
+  - component: {fileID: 5183451872302142212}
+  - component: {fileID: 5183451872302142219}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5183451872302142210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183451872302142332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10000, y: 10000, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &5183451872302142211
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183451872302142332}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 44095827
+  m_SortingLayer: -1
+  m_SortingOrder: -32768
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 0.14573693, g: 0.18733355, b: 0.23584908, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.16}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &5183451872302142209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183451872302142332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d91135042908e4d8eb4988b6cbdc52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productDatas:
+  - prefab: {fileID: 7366220275346407893, guid: 8c7765db668e9d142b5d73abeaa96d32, type: 3}
+    factoryProductType: 0
+--- !u!114 &5183451872302142208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183451872302142332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7174679d35120bd41984cee2f4040084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5183451872302142215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183451872302142332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2541add44ad7a00418c6d4008869bbc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTimerMax: 2.5
+  minX: -9
+  minY: 2
+--- !u!114 &5183451872302142213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183451872302142332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e947e7eb3216d40b72c592fa6847a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraFollow: {fileID: 0}
+  followPosition: {x: 245, y: 0, z: 0}
+  zoom: 90
+--- !u!114 &5183451872302142214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183451872302142332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28df691727c7c6a488933abd3ba9c1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPullDistance: 5
+  maxPullForce: 40
+  minPullForce: 40
+  raycastRadius: 1
+  CameraShakeForce: 0.2
+  CameraShakeDuration: 0.6
+  throwableMask:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &5183451872302142212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183451872302142332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f23dafe954771041842d359ee387448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrayDialogDataHolder:
+  - dialogEnum: 0
+    portugueseText: "H\xE1 uma batalha ocorrendo h\xE1 anos dentro do Planeta Terra-Suja. "
+    englishText: There's a battle happening for years now.
+    imagePTBR: {fileID: 21300000, guid: beeba3f021b07444ca16aa93002b5cb4, type: 3}
+    imageENG: {fileID: 21300000, guid: beeba3f021b07444ca16aa93002b5cb4, type: 3}
+  - dialogEnum: 1
+    portugueseText: " Seres desconhecidos feitos de materiais n\xE3o biodegrad\xE1veis
+      est\xE3o  destruindo o planeta."
+    englishText: Unkown beings made of non biodegradable material are destroying
+      the planet
+    imagePTBR: {fileID: 21300000, guid: b7d4812f6da6ba445aea430f87da5d67, type: 3}
+    imageENG: {fileID: 21300000, guid: 8cd5ac36fe03dad468c62ab69ad2c46f, type: 3}
+  - dialogEnum: 2
+    portugueseText: "O planeta sempre est\xE1 se regenerando..."
+    englishText: The planet is always healing...
+    imagePTBR: {fileID: 21300000, guid: 51f9b14659d023e45ae513deaa65eef8, type: 3}
+    imageENG: {fileID: 21300000, guid: 645ed47006b5cc04094613ae84c0a460, type: 3}
+  - dialogEnum: 3
+    portugueseText: "mas quando a quantidade de lixo \xE9 muito grande, o planeta
+      n\xE3o  consegue se recuperar a tempo. "
+    englishText: but when there's too much garbage, the planet can't heal in time.
+    imagePTBR: {fileID: 21300000, guid: 282030f43695187488eb3e1380d94a18, type: 3}
+    imageENG: {fileID: 21300000, guid: ca36c7afd2ef2264ebf855defbfc76e3, type: 3}
+  - dialogEnum: 4
+    portugueseText: "Ei, Voc\xEA a\xED! \xC9, voc\xEA mesmo!"
+    englishText: Hey! You there!
+    imagePTBR: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+    imageENG: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 5
+    portugueseText: " R\xE1pido, me ajude. Colete esses lixos e coloque-os nos coletores
+      corretos."
+    englishText: Quick, come help me. Collect these garbages and throw them in the
+      correct can
+    imagePTBR: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+    imageENG: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 6
+    portugueseText: "Lembre-se, deve coloc\xE1-los nos coletores corretos!"
+    englishText: Remember, you have to throw them in the correct can!
+    imagePTBR: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+    imageENG: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 12
+    portugueseText: "Ah! Voc\xEA est\xE1 atrapalhando nosso avan\xE7o tecnol\xF3gico.
+      Pare com isso!"
+    englishText: Argh! You are interfering with our thechnology advancements! Stop
+      that!
+    imagePTBR: {fileID: 21300000, guid: 51f9b14659d023e45ae513deaa65eef8, type: 3}
+    imageENG: {fileID: 21300000, guid: 645ed47006b5cc04094613ae84c0a460, type: 3}
+  - dialogEnum: 7
+    portugueseText: "Ei voc\xEA, enquanto eu tiver a sua ajuda, nunca perderemos."
+    englishText: Hey! As long as I have your help, we'll never lose!
+    imagePTBR: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+    imageENG: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 13
+    portugueseText: "Se voc\xEA n\xE3o quer sair por bem... vai sair por mal! "
+    englishText: If you don't want to go the easy way... you're going to go the hard
+      way!
+    imagePTBR: {fileID: 21300000, guid: b7d4812f6da6ba445aea430f87da5d67, type: 3}
+    imageENG: {fileID: 21300000, guid: 8cd5ac36fe03dad468c62ab69ad2c46f, type: 3}
+  - dialogEnum: 8
+    portugueseText: Cuidado, tem algo estranho acontecendo com seus coletores!
+    englishText: Look! There's something weird going on with the cans!
+    imagePTBR: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+    imageENG: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 14
+    portugueseText: "Parece que voc\xEA n\xE3o sabe quando parar, n\xE3o \xE9?"
+    englishText: Looks like you don't know when to stop, right?
+    imagePTBR: {fileID: 21300000, guid: 51f9b14659d023e45ae513deaa65eef8, type: 3}
+    imageENG: {fileID: 21300000, guid: 645ed47006b5cc04094613ae84c0a460, type: 3}
+  - dialogEnum: 15
+    portugueseText: "Se prepare, vamos fazer o poss\xEDvel para vencer!"
+    englishText: Get ready then. We're gonna do all we can to win!
+    imagePTBR: {fileID: 21300000, guid: 282030f43695187488eb3e1380d94a18, type: 3}
+    imageENG: {fileID: 21300000, guid: ca36c7afd2ef2264ebf855defbfc76e3, type: 3}
+  - dialogEnum: 9
+    portugueseText: "Sinto que eles est\xE3o preparando algum dispositivo perigoso..."
+    englishText: I sense some dangerous device being armed...
+    imagePTBR: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+    imageENG: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 10
+    portugueseText: " Cuidado! Eles est\xE3o mirando nos seus coletores! "
+    englishText: Look out! They're aiming at you cans!
+    imagePTBR: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+    imageENG: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 16
+    portugueseText: " J\xC1 CHEGA! Usaremos todas nossas for\xE7as!"
+    englishText: 'THAT''S ENOUGH! We''ll use everything we have! '
+    imagePTBR: {fileID: 21300000, guid: beeba3f021b07444ca16aa93002b5cb4, type: 3}
+    imageENG: {fileID: 21300000, guid: b606fd3165f5cd94fb31b05762bad395, type: 3}
+  - dialogEnum: 11
+    portugueseText: "N\xE3o desista ainda. Se vencermos agora, venceremos para sempre!"
+    englishText: Don't give up yet. If we win today, we'll win forever!
+    imagePTBR: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+    imageENG: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 17
+    portugueseText: "OBRIGADO! N\xF3s conseguimos coletas de forma correta a maior
+      parte daqueles  lixos."
+    englishText: THANK YOU! We managed to collect a good amount in the correct way!
+    imagePTBR: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+    imageENG: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 18
+    portugueseText: "Conseguimos salvar esse planeta gra\xE7as a voc\xEA. Sua ajuda
+      foi muito importante."
+    englishText: Thanks to you, this planet is saved. Your help matters.
+    imagePTBR: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+    imageENG: {fileID: 21300000, guid: 1133f41ac977eed49b24b637cb7d29d3, type: 3}
+  - dialogEnum: 19
+    portugueseText: "N\xE3o foi dessa vez... Foi lixo demais para o planeta... "
+    englishText: 'This time we lost... it was too much garbage... '
+    imagePTBR: {fileID: 21300000, guid: beeba3f021b07444ca16aa93002b5cb4, type: 3}
+    imageENG: {fileID: 21300000, guid: b606fd3165f5cd94fb31b05762bad395, type: 3}
+  - dialogEnum: 20
+    portugueseText: "Pelo menos n\xF3s tentamos, n\xE3o \xE9? E quem sabe, da pr\xF3xima
+      vez n\xF3s  conseguimos."
+    englishText: At least we tried, right? Maybe next time we'll make it.
+    imagePTBR: {fileID: 21300000, guid: 282030f43695187488eb3e1380d94a18, type: 3}
+    imageENG: {fileID: 21300000, guid: ca36c7afd2ef2264ebf855defbfc76e3, type: 3}
+--- !u!114 &5183451872302142219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183451872302142332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a1b7ce71ac07543914b6b9a843e47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winPanel: {fileID: 0}
+  losePanel: {fileID: 0}
+  particleEffectBackGround: {fileID: 0}
+  healthBar: {fileID: 0}
+  tutorialText: {fileID: 0}

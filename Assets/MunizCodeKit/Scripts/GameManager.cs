@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public static bool isGameRunning { get; private set; }
     //
 
+     
+
     CutsceneHandler cutsceneHandler;
 
     private void Start()
@@ -78,7 +80,10 @@ public class GameManager : MonoBehaviour
     {
         cleanGame?.Invoke(null, EventArgs.Empty);
         PauseGame(true);
+       
     }
-
+    
+   
 
 }
+ 

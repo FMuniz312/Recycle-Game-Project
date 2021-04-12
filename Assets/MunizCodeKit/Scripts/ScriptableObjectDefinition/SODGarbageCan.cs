@@ -6,7 +6,8 @@ using UnityEngine;
 public class SODGarbageCan : ScriptableObject
 {
     public TrashType garbageCanType;
-    public Sprite garbageCanSprite;
+    public Sprite garbageCanSpritePortuguese;
+    public Sprite garbageCanSpriteEnglish;
     public int healAmount;
     [Header("SecondMode")]
     public float timerMax;

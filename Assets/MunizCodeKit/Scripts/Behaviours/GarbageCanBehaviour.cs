@@ -70,8 +70,13 @@ public class GarbageCanBehaviour : MonoBehaviour
     {
         int randomNumber = Random.Range(0, garbageCanTypeList.Count);
         sodGarbageCan = garbageCanTypeList[randomNumber];
-        spriteRenderer.sprite = garbageCanTypeList[randomNumber].garbageCanSprite;
-        garbageCanTypeList.RemoveAt(randomNumber);
+        switch (LanguageSystem.gameLanguage)
+        {
+            default: spriteRenderer.sprite = garbageCanTypeList[randomNumber].garbageCanSpriteEnglish; break;
+            case Language.BrazilianPortuguese: spriteRenderer.sprite = garbageCanTypeList[randomNumber].garbageCanSpritePortuguese; break;
+
+        }
+         garbageCanTypeList.RemoveAt(randomNumber);
         if (garbageCanTypeList.Count <= 0)
         {
             FillList();

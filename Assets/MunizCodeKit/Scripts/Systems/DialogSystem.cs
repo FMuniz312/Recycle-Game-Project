@@ -15,15 +15,22 @@ public class DialogSystem : MonoBehaviour
     static public DialogSystem instance;
     private void Awake()
     {
-        if (instance == null) instance = this;
+        if (instance == null)
+        {
+            instance = this;
+
+        }
     }
     #endregion
 
     public void StartDialog(DialogEnum dialogenum)
     {
+        DialogDataHolder dialogDataHolder = GetDialogDataHolder(dialogenum);
+        string text = GetLanguageText(dialogDataHolder);
+        Sprite sprite = GetLanguageImage(dialogDataHolder);
         try
         {
-            DialogBoxController.instance.ShowDialogBox(GetDialogDataHolder(dialogenum).dialogText, TEXT_DELAY, GetDialogDataHolder(dialogenum).image);
+            DialogBoxController.instance.ShowDialogBox(text, TEXT_DELAY, sprite);
         }
 
         catch
@@ -35,13 +42,39 @@ public class DialogSystem : MonoBehaviour
 
     public void StartDialog(DialogEnum dialogenum, UnityEngine.Events.UnityAction afterbuttonclicked)
     {
-        DialogBoxController.instance.ShowDialogBox(GetDialogDataHolder(dialogenum).dialogText, TEXT_DELAY, GetDialogDataHolder(dialogenum).image, afterbuttonclicked);
+        DialogDataHolder dialogDataHolder = GetDialogDataHolder(dialogenum);
+        string text = GetLanguageText(dialogDataHolder);
+        Sprite sprite = GetLanguageImage(dialogDataHolder);
+        DialogBoxController.instance.ShowDialogBox(text, TEXT_DELAY, sprite, afterbuttonclicked);
 
     }
     public void StartDialog(DialogEnum dialogenum, UnityEngine.Events.UnityAction afterbuttonclicked, string closebuttontext)
     {
-        DialogBoxController.instance.ShowDialogBox(GetDialogDataHolder(dialogenum).dialogText, TEXT_DELAY, GetDialogDataHolder(dialogenum).image, afterbuttonclicked, closebuttontext);
+        DialogDataHolder dialogDataHolder = GetDialogDataHolder(dialogenum);
+        string text = GetLanguageText(dialogDataHolder);
+        Sprite sprite = GetLanguageImage(dialogDataHolder);
 
+        DialogBoxController.instance.ShowDialogBox(text, TEXT_DELAY, sprite, afterbuttonclicked, closebuttontext);
+
+    }
+
+    string GetLanguageText(DialogDataHolder dialogdataholder)
+    {
+        switch (LanguageSystem.gameLanguage)
+        {
+            default: return dialogdataholder.englishText; break;
+            case Language.BrazilianPortuguese: return dialogdataholder.portugueseText; break;
+
+        }
+    }
+    Sprite GetLanguageImage(DialogDataHolder dialogdataholder)
+    {
+        switch (LanguageSystem.gameLanguage)
+        {
+            default: return dialogdataholder.imageENG; break;
+            case Language.BrazilianPortuguese: return dialogdataholder.imagePTBR; break;
+
+        }
     }
 
     DialogDataHolder GetDialogDataHolder(DialogEnum dialogenum)
@@ -49,13 +82,14 @@ public class DialogSystem : MonoBehaviour
         return arrayDialogDataHolder.Where(p => p.dialogEnum == dialogenum).First();
     }
 
-
     [System.Serializable]
     public class DialogDataHolder
     {
         public DialogEnum dialogEnum;
-        public string dialogText;
-        public Sprite image;
+        public string portugueseText;
+        public string englishText;
+        public Sprite imagePTBR;
+        public Sprite imageENG;
     }
     public enum DialogEnum
     {
@@ -83,3 +117,4 @@ public class DialogSystem : MonoBehaviour
 
     }
 }
+

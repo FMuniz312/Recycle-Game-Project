@@ -126,11 +126,18 @@ public class CutsceneHandler : MonoBehaviour
     #region CutsceneWin
     public void PlayCutSceneWin()
     {
+        string text;
+        switch (LanguageSystem.gameLanguage)
+        {
+            default: text = "Play Again"; break;
+            case Language.BrazilianPortuguese: text = "Jogar Novamente"; break;
+
+        } 
         winPanel.SetActive(true);
         cameraController.SetCameraFollowPosition(new Vector3(PlanetBehaviour.instance.gameObject.transform.position.x, PlanetBehaviour.instance.gameObject.transform.position.y, -10));
         cameraController.SetCameraZoom(NEAR_ZOOM);
         DialogSystem.instance.StartDialog(DialogSystem.DialogEnum.WinGame1, () =>
-        DialogSystem.instance.StartDialog(DialogSystem.DialogEnum.WinGame2, () => UnityEngine.SceneManagement.SceneManager.LoadScene(1), "Jogar de novo"));
+        DialogSystem.instance.StartDialog(DialogSystem.DialogEnum.WinGame2, () => UnityEngine.SceneManagement.SceneManager.LoadScene(1), text));
 
     }
     #endregion
@@ -139,11 +146,17 @@ public class CutsceneHandler : MonoBehaviour
     public void PlayCutSceneLose()
     {
         losePanel.SetActive(true);
+        string text;
+        switch (LanguageSystem.gameLanguage)
+        {
+            default: text = "Play Again"; break;
+            case Language.BrazilianPortuguese: text = "Jogar Novamente"; break;
 
+        }
         cameraController.SetCameraFollowPosition(new Vector3(0, 0, -10));
         cameraController.SetCameraZoom(FAR_ZOOM);
         DialogSystem.instance.StartDialog(DialogSystem.DialogEnum.LoseGame1, () =>
-        DialogSystem.instance.StartDialog(DialogSystem.DialogEnum.LoseGame2, () => UnityEngine.SceneManagement.SceneManager.LoadScene(1), "Jogar de novo"));
+        DialogSystem.instance.StartDialog(DialogSystem.DialogEnum.LoseGame2, () => UnityEngine.SceneManagement.SceneManager.LoadScene(1), text));
 
     }
     #endregion

@@ -8,6 +8,7 @@ public class UIPlayerHUDHandler : MonoBehaviour
 {
     [SerializeField] Image healthBar;
     [SerializeField] Gradient planetsHealthColor;
+    [SerializeField] Text tutorialText;
     float lifeEnergyFillAmount;
 
     private void Start()
@@ -15,7 +16,12 @@ public class UIPlayerHUDHandler : MonoBehaviour
         PlanetBehaviour.instance.GetHealthSystem().OnPointsChanged += UIPlayerHUDHandler_OnPointsChanged;
         lifeEnergyFillAmount = PlanetBehaviour.instance.GetHealthSystem().GetPointsPercentage();
         UpdateHealthBarUI();
+        switch (LanguageSystem.gameLanguage)
+        {
+            default: tutorialText.text = "Tutorial: Use your mouse to click on the garbage. Pull it in the opposite direction of your target and then let it go! Just like a slingshot!"; ; break;
+            case Language.BrazilianPortuguese: tutorialText.text = "Tutorial: Use o mouse para clicar no lixo. Puxe - o na direção oposta ao seu alvo e lançe o lixo para ele!Como um estilingue"; break;
 
+        }
     }
 
     private void UIPlayerHUDHandler_OnPointsChanged(object sender, MunizCodeKit.Systems.PointsSystem.OnPointsDataEventArgs e)
